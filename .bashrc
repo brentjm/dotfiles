@@ -116,9 +116,20 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Set bash to vi editing mode
+# Don't know which of these to use (also is an .inputrc option)
+# set -o vi 
 set editing-mode vi
+
+# Disable the Ctrl-S binding
+stty stop ''
+stty start ''
+stty -ixon
+stty -ixoff
 
 export WORKON_HOME=$HOME/.virtualenvs
 
 # added by Anaconda3 4.2.0 installer
 export PATH="/home/virtual/anaconda3/bin:$PATH"
+
+
