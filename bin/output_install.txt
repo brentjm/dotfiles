@@ -1,0 +1,25 @@
+
+The following 31 packages were requested: 
+ linux-headers-3.13.0-24-generic ubuntu-restricted-extras libncurses. dconf-editor g\+\+ gcc make gfortran curl git nautilus-dropbox smartmontools nfs-common gstreamer0.10-plugins-base gstreamer0.10-plugins-good gstreamer0.10-plugins-bad gstreamer0.10-plugins-ugly libmp3lame0 libavcodec-extra-54 libav-tools audacity mpg123 python-musicbrainz2 libmusicbrainz5-0 picard vlc vim vim-gnome vim-latexsuite exuberant-ctags texlive texlive-base texlive-extra-utils texlive-plain-extra texlive-font-utils texlive-fonts-recommended texlive-latex-extra texlive-formats-extra texlive-generic-recommended texlive-generic-extra texlive-math-extra texlive-pictures texlive-pstricks texlive-publishers texlive-science biber texlive-bibtex-extra vtk6 libvtk6 mayavi2 gimp impressive xscreensaver blender skype wine winetricks playonlinux virtualbox virtualbox-guest-additions-iso vitables vde2 
+
+
+The following 31 were not found in dpkg: 
+ linux-headers-3.13.0-24-generic ubuntu-restricted-extras libncurses. dconf-editor gfortran git nautilus-dropbox smartmontools nfs-common gstreamer0.10-plugins-base gstreamer0.10-plugins-good gstreamer0.10-plugins-bad gstreamer0.10-plugins-ugly libmp3lame0 libavcodec-extra-54 libav-tools audacity mpg123 python-musicbrainz2 libmusicbrainz5-0 picard vlc vim vim-gnome vim-latexsuite exuberant-ctags texlive texlive-base texlive-extra-utils texlive-plain-extra texlive-font-utils texlive-fonts-recommended texlive-latex-extra texlive-formats-extra texlive-generic-recommended texlive-generic-extra texlive-math-extra texlive-pictures texlive-pstricks texlive-publishers texlive-science biber texlive-bibtex-extra vtk6 libvtk6 mayavi2 gimp impressive xscreensaver blender skype wine winetricks playonlinux virtualbox virtualbox-guest-additions-iso vitables vde2 
+
+
+The following 24 packages will try to be installed with apt: 
+ ubuntu-restricted-extras libncurses5 dconf-editor gfortran git nautilus-dropbox smartmontools nfs-common gstreamer0.10-plugins-base gstreamer0.10-plugins-good libmp3lame0 libav-tools audacity python-musicbrainz2 picard vlc vim-gnome vim-latexsuite exuberant-ctags texlive texlive-base texlive-extra-utils texlive-plain-extra texlive-font-utils texlive-fonts-recommended texlive-latex-extra texlive-formats-extra texlive-generic-recommended texlive-generic-extra texlive-math-extra texlive-pictures texlive-pstricks texlive-publishers texlive-science biber texlive-bibtex-extra vtk6 mayavi2 gimp impressive xscreensaver blender winetricks playonlinux virtualbox virtualbox-guest-additions-iso vitables vde2
+Reading package lists...
+Building dependency tree...
+Reading state information...
+libncurses5 is already the newest version (6.0+20160213-1ubuntu1).
+libmp3lame0 is already the newest version (3.99.5+repack1-9build1).
+libmp3lame0 set to manually installed.
+Some packages could not be installed. This may mean that you have
+requested an impossible situation or if you are using the unstable
+distribution that some required packages have not yet been created
+or been moved out of Incoming.
+The following information may help to resolve the situation:
+
+The following packages have unmet dependencies:
+ texlive-bibtex-extra : Breaks: biber (< 2.4) but 2.3-1 is to be installed

@@ -16,6 +16,7 @@ Plugin 'gmarik/vundle'
 Plugin 'klen/python-mode'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'vim-scripts/indentpython.vim'
+Plugin 'Valloric/YouCompleteMe' "Requires a compiled component (see GitHub page)
 Plugin 'davidhalter/jedi-vim'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'tpope/vim-fugitive'
@@ -78,7 +79,7 @@ let g:pymode_syntax_space_errors = g:pymode_syntax_all
 let g:pymode_folding = 0
 
 "******* Jedi-Vim *********
-let g:jedi#completions_enabled = 1
+let g:jedi#completions_enabled = 0
 
 "****** CtrlP ***********
 let g:ctrlp_match_window = 'bottom,order:ttb'

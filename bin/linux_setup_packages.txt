@@ -1,0 +1,141 @@
+# Linux libraries
+linux-headers-4.4.0-21-generic
+ubuntu-restricted-extras
+libncurses.
+dconf-editor
+
+# compilers
+g\+\+
+gcc
+make
+gfortran
+
+# web transfer tools
+curl
+git
+nautilus-dropbox
+# install manually see Google Doc sheet
+#youtube-dl
+
+# hardware tools
+smartmontools
+#xsane-common
+
+# file tools
+nfs-common
+
+# audio tools
+gstreamer0.10-plugins-base
+gstreamer0.10-plugins-good
+gstreamer0.10-plugins-bad
+gstreamer0.10-plugins-ugly
+libmp3lame0
+libavcodec-extra-56
+libav-tools
+audacity
+mpg123
+python-musicbrainz2
+libmusicbrainz5-0
+picard
+
+# rubyripper dependencies
+#cd-discid 
+#cdparanoia 
+#flac 
+#lame 
+#mp3gain 
+#normalize-audio 
+#ruby-gnome2 
+#ruby 
+#vorbisgain
+#cdrdao
+
+# video tools
+vlc
+
+# vim
+vim
+vim-gnome
+vim-gnome-py2
+vim-latexsuite
+exuberant-ctags
+
+# latex
+texlive
+texlive-base
+texlive-extra-utils
+texlive-plain-extra
+texlive-font-utils
+texlive-fonts-recommended
+texlive-latex-extra
+texlive-formats-extra
+texlive-generic-recommended
+texlive-generic-extra
+texlive-math-extra
+texlive-pictures
+texlive-pstricks
+texlive-publishers
+texlive-science
+biber
+#texlive-bibtex-extra
+
+# graphics
+vtk6
+libvtk6
+mayavi2
+gimp
+impressive
+xscreensaver
+blender
+
+# python
+#python-dev
+#python-virtualenv
+#virtualenvwrapper
+#python-setuptools
+#ipython
+#ipython-qtconsole
+#python-configobj
+#python-numpy
+#python-scipy
+#python-matplotlib
+#python-h5py
+#python-imaging
+#python-vtk
+#python-pyvtk
+#python-wxgtk2.8
+#python-wxtools
+#python-mdp
+#python-opencv
+#python-pygame
+#python-pyglet
+#python-sparse
+#python-mpi4py
+#python-opengl
+#python-scitools
+#python-scientific
+#python-mdp
+#python-qt4
+#python-tables
+#python-pandas
+
+# communication
+skype
+
+# wine
+wine
+winetricks
+playonlinux
+
+# virtualbox
+virtualbox
+virtualbox-guest-additions-iso
+
+# HDF5
+vitables
+
+# remote machines
+vde2
+
+# web development tools
+xsltproc
