@@ -131,5 +131,3 @@ export WORKON_HOME=$HOME/.virtualenvs
 
 # added by Anaconda3 4.2.0 installer
 export PATH="/home/virtual/anaconda3/bin:$PATH"
-
-

@@ -32,6 +32,7 @@ Plugin 'jnurmine/Zenburn'
 "Plugin 'KevinGoodsell/vim-csexact' "Only works if vim compiled with +gui
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-surround'
+Plugin 'fholgado/minibufexpl.vim'
 
 call vundle#end()
 
@@ -58,7 +59,7 @@ let g:pymode_doc_key = 'K'
 
 "Linting
 let g:pymode_lint = 1
-let g:pymode_lint_checker = "pyflakes,pep8"
+let g:pymode_lint_checker = "pyflakes,pylint,pep8"
 " Auto check on save
 let g:pymode_lint_write = 1
 
@@ -68,6 +69,10 @@ let g:pymode_virtualenv = 1
 " Enable breakpoints plugin
 let g:pymode_breakpoint = 1
 let g:pymode_breakpoint_bind = '<leader>b'
+
+" Enable running code
+"let g:pymode_run = 1
+"let g:pymode_run_bind = '<leader>r'
 
 " syntax highlighting
 let g:pymode_syntax = 1
@@ -79,7 +84,7 @@ let g:pymode_syntax_space_errors = g:pymode_syntax_all
 let g:pymode_folding = 0
 
 "******* Jedi-Vim *********
-let g:jedi#completions_enabled = 0
+let g:jedi#completions_enabled = 1
 
 "****** CtrlP ***********
 let g:ctrlp_match_window = 'bottom,order:ttb'
