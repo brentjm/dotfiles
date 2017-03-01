@@ -99,13 +99,6 @@ function apt_install () {
 #    done
 }
 
-function dvdcss () {
-    #Install the dvd reading class
-
-    /usr/share/doc/libdvdread4/install-css.sh
-    exit
-}
-
 PKGS=($(read_file $1))
 echo -e "\nThe following ${#PKGS} packages were requested: \n ${PKGS[@]} \n\n"
 
@@ -116,6 +109,3 @@ FOUND=($(search_apt "${NOTINSTALLED[@]}"))
 echo -e "The following ${#FOUND} packages will try to be installed with apt: \n ${FOUND[@]}"
 
 apt_install "${FOUND[@]}"
-
-# Attempting to install DVD css
-dvdcss

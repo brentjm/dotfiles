@@ -1,5 +1,5 @@
 # Linux libraries
-linux-headers-4.4.0-21-generic
+#linux-headers-4.4.0-21-generic # use the extras installation
 ubuntu-restricted-extras
 libncurses.
 dconf-editor
@@ -8,6 +8,7 @@ dconf-editor
 g\+\+
 gcc
 make
+cmake
 gfortran
 
 # web transfer tools
@@ -52,6 +53,7 @@ picard
 
 # video tools
 vlc
+libdvd-pkg
 
 # vim
 vim
@@ -82,45 +84,47 @@ biber
 # graphics
 vtk6
 libvtk6
-mayavi2
+#mayavi2
 gimp
 impressive
 xscreensaver
-blender
+#blender # use the extras installation script
+freecad
 
 # python
-#python-dev
-#python-virtualenv
-#virtualenvwrapper
-#python-setuptools
-#ipython
+python-dev
+python-virtualenv
+virtualenvwrapper
+python-setuptools
+ipython
+ipython3
 #ipython-qtconsole
-#python-configobj
-#python-numpy
-#python-scipy
-#python-matplotlib
-#python-h5py
-#python-imaging
-#python-vtk
-#python-pyvtk
-#python-wxgtk2.8
-#python-wxtools
-#python-mdp
-#python-opencv
-#python-pygame
-#python-pyglet
-#python-sparse
-#python-mpi4py
-#python-opengl
-#python-scitools
-#python-scientific
-#python-mdp
-#python-qt4
-#python-tables
-#python-pandas
+python-configobj
+python-numpy
+python-scipy
+python-matplotlib
+python-h5py
+python-imaging
+python-vtk6
+python-pyvtk
+python-wxgtk2.8
+python-wxtools
+python-mdp
+python-opencv
+python-pygame
+python-pyglet
+python-sparse
+python-mpi4py
+python-opengl
+python-scitools
+python-scientific
+python-mdp
+python-qt4
+python-tables
+python-pandas
 
 # communication
-skype
+#skype
 
 # wine
 wine
@@ -128,8 +132,8 @@ winetricks
 playonlinux
 
 # virtualbox
-virtualbox
-virtualbox-guest-additions-iso
+#virtualbox # use extras installation script
+#virtualbox-guest-additions-iso
 
 # HDF5
 vitables

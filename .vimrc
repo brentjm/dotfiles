@@ -2,8 +2,8 @@
 set nocompatible
 filetype off
 
-"set rtp+=~/.vim/bundle/Vundle.vim/
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim/
+"set rtp+=~/.vim/bundle/vundle/
 "call vundle#rc()
 call vundle#begin()
 
@@ -17,7 +17,7 @@ Plugin 'klen/python-mode'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'Valloric/YouCompleteMe' "Requires a compiled component (see GitHub page)
-Plugin 'davidhalter/jedi-vim'
+"Plugin 'davidhalter/jedi-vim'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
