@@ -74,13 +74,12 @@ function node() {
     sudo apt-get install -y nodejs
 }
 
-
-#linuxHeaders
-#googleChrome
-#virtualBox
-#dvdcss
-#youtubeDL
-#blender
+linuxHeaders
+googleChrome
+virtualBox
+dvdcss
+youtubeDL
+blender
 vim
-#bashrc
-#node
+bashrc
+node
