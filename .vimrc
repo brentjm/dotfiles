@@ -116,6 +116,14 @@ set listchars=eol:$,tab:>-,trail:.,extends:>,precedes:<,nbsp:_
 " Use <leader>l to toggle display of whitespace
 nmap <leader>l :set list!<CR>
 
+augroup GeneralFiles
+  set tabstop=4
+  set softtabstop=4
+  set shiftwidth=4
+  set expandtab
+  set autoindent
+  augroup END
+
 "" Python PEP-008
 augroup PythonFiles
     autocmd!

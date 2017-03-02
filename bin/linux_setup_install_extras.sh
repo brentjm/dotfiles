@@ -56,9 +56,9 @@ function blender() {
 }
 
 function vim() {
-#    ln -s /home/brent/dotfiles/.vimrc /home/brent/.vimrc
-#    ln -s /home/brent/dotfiles/.vim /home/brent/.vim
-#    git ~/dotfiles/.vim/ clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    ln -s /home/brent/dotfiles/.vimrc /home/brent/.vimrc
+    ln -s /home/brent/dotfiles/.vim /home/brent/.vim
+    git ~/dotfiles/.vim/ clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
      python ~/dotfiles/.vim/bundle/YouCompleteMe/install.py --clang-completer --tern-completer
 }
 
@@ -74,6 +74,13 @@ function node() {
     sudo apt-get install -y nodejs
 }
 
+function anaconda() {
+    wget --directory-prefix=/home/brent/Downloads/ https://repo.continuum.io/archive/Anaconda3-4.3.0-Linux-x86_64.sh
+    md5sum ~/Downloads/Anaconda*.sh
+    sha256sum ~/Downloads/Anaconda*.sh
+    bash ~/Downloads/Anaconda3-4.3.0-Linux-x86_64.sh 
+}
+
 linuxHeaders
 googleChrome
 virtualBox
@@ -83,3 +90,4 @@ blender
 vim
 bashrc
 node
+anaconda
