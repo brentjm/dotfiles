@@ -18,6 +18,9 @@ nautilus-dropbox
 # install manually see Google Doc sheet
 #youtube-dl
 
+# Web browser
+chromium-browser
+
 # hardware tools
 smartmontools
 #xsane-common
@@ -88,6 +91,8 @@ libvtk6
 gimp
 impressive
 xscreensaver
+xscreensaver-data-extra
+xscreensaver-screensaver-bsod
 #blender # use the extras installation script
 freecad
 
