@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 function configuration() {
     # Modify the /etc/samba/smb.conf file to make the home directories

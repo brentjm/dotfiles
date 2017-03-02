@@ -97,7 +97,10 @@ alias l='ls -CF'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias definitions.
+# screen lock using xserver
 alias xslock='xscreensaver-command -lock'
+# remove anaconda3 from the environment PATH
+alias rmconda='source remove_anaconda.sh'
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
@@ -129,9 +132,6 @@ stty -ixon
 stty -ixoff
 
 export WORKON_HOME=$HOME/.virtualenvs
-
-# added by Anaconda3 4.2.0 installer
-export PATH="/home/virtual/anaconda3/bin:$PATH"
 
 # added by Anaconda3 4.3.0 installer
 export PATH="/home/brent/anaconda3/bin:$PATH"

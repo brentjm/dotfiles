@@ -1,8 +1,7 @@
-#!/usr/bin/bash
-# Install packages that are either not in the default repositories or are better to 
-# install via another repository or from downloaded packages or just don't install easily with the
-# overall installation script.
-# TODO: vim (YouComplereMe)
+#!/bin/bash
+# Install packages that are either not in the default repositories or are 
+# better to # install via another repository or from downloaded packages 
+# or just don't install easily with the  overall installation script.
 
 function linuxHeaders() {
     sudo apt-get install linux-headers-$(uname -r)
@@ -81,13 +80,20 @@ function anaconda() {
     bash ~/Downloads/Anaconda3-4.3.0-Linux-x86_64.sh 
 }
 
-linuxHeaders
-googleChrome
-virtualBox
-dvdcss
-youtubeDL
-blender
-vim
-bashrc
-node
-anaconda
+function postgres() {
+    sudo apt-get install -y postgresql 
+    ver=$(psql --version | awk -F " " '{print $3}' | cut -c -3)
+    sudo apt-get install -y libpq-dev postgresql-server-dev-${ver}
+}
+
+#linuxHeaders
+#googleChrome
+#virtualBox
+#dvdcss
+#youtubeDL
+#blender
+#vim
+#bashrc
+#node
+#anaconda
+postgres
