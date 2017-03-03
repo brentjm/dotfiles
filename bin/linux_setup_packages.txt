@@ -18,6 +18,11 @@ nautilus-dropbox
 # install manually see Google Doc sheet
 #youtube-dl
 
+# Propmts
+powerline
+python-powerline
+python3-powerline
+
 # Web browser
 chromium-browser
 
