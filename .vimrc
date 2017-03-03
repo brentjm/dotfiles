@@ -12,79 +12,102 @@ call vundle#begin()
 Plugin 'gmarik/vundle'
 
 " The bundles you install will be listed here
-
-Plugin 'klen/python-mode'
-Plugin 'tmhedberg/SimpylFold'
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'Valloric/YouCompleteMe' "Requires a compiled component (see GitHub page)
-"Plugin 'davidhalter/jedi-vim'
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-Plugin 'tpope/vim-fugitive'
-Plugin 'scrooloose/nerdtree'
-Plugin 'benmills/vimux'
-Plugin 'majutsushi/tagbar'
-Plugin 'vim-latex/vim-latex'
-Plugin 'vim-scripts/VOoM'
-"Plugin 'wilywampa/vim-ipython' "Only worked vim compiles with sampe python
-Plugin 'julienr/vim-cellmode' "Works in a tmux with window and session name 'ipython'
+" colorschemes
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'jnurmine/Zenburn'
 "Plugin 'KevinGoodsell/vim-csexact' "Only works if vim compiled with +gui
-Plugin 'kien/ctrlp.vim'
-Plugin 'tpope/vim-surround'
-Plugin 'fholgado/minibufexpl.vim'
+
+" general
+Plugin 'ctrlpvim/ctrlp.vim' "Fuzzy searching
+Plugin 'tpope/vim-surround' "Insert surrounding characters on text (ysiw, cs)
+Plugin 'fholgado/minibufexpl.vim' "List buffers
+Plugin 'scrooloose/nerdtree' "File tree
+Plugin 'majutsushi/tagbar' "Generate tags for files (uses exuberant ctags)
+Plugin 'powerline/powerline' ", {'rtp': 'powerline/bindings/vim/'} added below
+
+" programming
+Plugin 'Valloric/YouCompleteMe' "Requires a compiled component (see GitHub page)
+"Plugin 'vim-syntastic/syntastic' "Syntax checking
+"Plugin 'wilywampa/vim-ipython' "Only worked vim compiles with sampe python
+"
+" python
+Plugin 'tmhedberg/SimpylFold' "Better folding for Python
+Plugin 'julienr/vim-cellmode' "Works in a tmux with window and session name 'ipython'
+"Plugin 'klen/python-mode' "
+"Plugin 'vim-scripts/indentpython.vim' "Not needed?
+"Plugin 'davidhalter/jedi-vim' "Not needed with YouCompleteMe
+"
+" latex
+Plugin 'vim-latex/vim-latex' "Notes: compile-\ll, fold-\rf, insert ref F5 inside []
+Plugin 'vim-scripts/VOoM' "Latex outliner
+
+" git
+Plugin 'tpope/vim-fugitive' "Notes: edit commit-:Gedit, see diff-:Gdiff
+
+" tmux
+"Plugin 'benmills/vimux' "Interact with tmux (vim-cellmode is more current)
 
 call vundle#end()
 
 filetype plugin indent on
 
-""**** Python-Mode Configuration ******
-" Activate rope
-" Keys:
-" K             Show python docs
-" <Ctrl-Space>  Rope autocomplete
-" <Ctrl-c>g     Rope goto definition
-" <Ctrl-c>d     Rope show documentation
-" <Ctrl-c>f     Rope find occurrences
-" <Leader>b     Set, unset breakpoint (g:pymode_breakpoint enabled)
-" [[            Jump on previous class or function (normal, visual, operator modes)
-" ]]            Jump on next class or function (normal, visual, operator modes)
-" [M            Jump on previous class or method (normal, visual, operator modes)
-" ]M            Jump on next class or method (normal, visual, operator modes)
-let g:pymode_rope = 0
+"""**** Python-Mode Configuration ******
+"" Activate rope
+"" Keys:
+"" K             Show python docs
+"" <Ctrl-Space>  Rope autocomplete
+"" <Ctrl-c>g     Rope goto definition
+"" <Ctrl-c>d     Rope show documentation
+"" <Ctrl-c>f     Rope find occurrences
+"" <Leader>b     Set, unset breakpoint (g:pymode_breakpoint enabled)
+"" [[            Jump on previous class or function (normal, visual, operator modes)
+"" ]]            Jump on next class or function (normal, visual, operator modes)
+"" [M            Jump on previous class or method (normal, visual, operator modes)
+"" ]M            Jump on next class or method (normal, visual, operator modes)
+"let g:pymode_rope = 0
+"
+"" Documentation
+"let g:pymode_doc = 1
+"let g:pymode_doc_key = 'K'
+"
+""Linting
+"let g:pymode_lint = 1
+"let g:pymode_lint_checker = "pyflakes,pylint,pep8"
+"" Auto check on save
+"let g:pymode_lint_write = 1
+"
+"" Support virtualenv
+"let g:pymode_virtualenv = 1
+"
+"" Enable breakpoints plugin
+"let g:pymode_breakpoint = 1
+"let g:pymode_breakpoint_bind = '<leader>b'
+"
+"" Enable running code
+""let g:pymode_run = 1
+""let g:pymode_run_bind = '<leader>r'
+"
+"" syntax highlighting
+"let g:pymode_syntax = 1
+"let g:pymode_syntax_all = 1
+"let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+"let g:pymode_syntax_space_errors = g:pymode_syntax_all
+"
+"" Don't autofold code
+"let g:pymode_folding = 0
 
-" Documentation
-let g:pymode_doc = 1
-let g:pymode_doc_key = 'K'
+"******* Syntastic ********
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 
-"Linting
-let g:pymode_lint = 1
-let g:pymode_lint_checker = "pyflakes,pylint,pep8"
-" Auto check on save
-let g:pymode_lint_write = 1
-
-" Support virtualenv
-let g:pymode_virtualenv = 1
-
-" Enable breakpoints plugin
-let g:pymode_breakpoint = 1
-let g:pymode_breakpoint_bind = '<leader>b'
-
-" Enable running code
-"let g:pymode_run = 1
-"let g:pymode_run_bind = '<leader>r'
-
-" syntax highlighting
-let g:pymode_syntax = 1
-let g:pymode_syntax_all = 1
-let g:pymode_syntax_indent_errors = g:pymode_syntax_all
-let g:pymode_syntax_space_errors = g:pymode_syntax_all
-
-" Don't autofold code
-let g:pymode_folding = 0
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
 
 "******* Jedi-Vim *********
-let g:jedi#completions_enabled = 1
+"let g:jedi#completions_enabled = 1
 
 "****** CtrlP ***********
 let g:ctrlp_match_window = 'bottom,order:ttb'
@@ -93,8 +116,14 @@ let g:ctrlp_working_path_mode = 0
 let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 
 "****** Powerline setup *********
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim/
+
+" Always show statusline
 set laststatus=2
+
+" Use 256 colours (Use this setting only if your terminal supports 256 colours)
+set t_Co=256
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
 
 "****** NERDTree mapping ***********
 map <F2> :NERDTreeToggle<CR>
