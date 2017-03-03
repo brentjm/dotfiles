@@ -121,10 +121,6 @@ set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim/
 " Always show statusline
 set laststatus=2
 
-" Use 256 colours (Use this setting only if your terminal supports 256 colours)
-set t_Co=256
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
-
 "****** NERDTree mapping ***********
 map <F2> :NERDTreeToggle<CR>
 
@@ -185,13 +181,19 @@ nnoremap <C-H> <C-W><C-H>
 
 "***** Colors ************
 if has('gui_running')
-  set background=dark
+  let g:solarized_termcolors=256
+  set background=light
   colorscheme solarized
+  set guifont=DejaVu\ Sans\ Mono\ 10
 else
-  colorscheme zenburn
+  "colorscheme zenburn
+  let g:solarized_termcolors=256
+  set background=light
+  colorscheme solarized
+  " Use 256 colours (Use this setting only if your terminal supports 256 colours)
+  set t_Co=256
+  set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
 endif
-
-let g:solarized_termcolors=256
 
 " more subtle popup colors
 if has ('gui_running')
