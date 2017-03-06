@@ -2,8 +2,8 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim/
-"set rtp+=~/.vim/bundle/vundle/
+"set rtp+=~/.vim/bundle/Vundle.vim/
+set rtp+=~/.vim/bundle/vundle/
 "call vundle#rc()
 call vundle#begin()
 
