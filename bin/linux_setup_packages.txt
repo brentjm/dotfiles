@@ -17,6 +17,7 @@ git
 nautilus-dropbox
 # install manually see Google Doc sheet
 #youtube-dl
+nmap
 
 # Propmts
 powerline
