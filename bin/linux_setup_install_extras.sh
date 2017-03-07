@@ -7,6 +7,11 @@ function linuxHeaders() {
     sudo apt-get install linux-headers-$(uname -r)
 }
 
+function libncurses() {
+    libncurses=$(apt-cache search libncurses | awk '{print $1}' | grep libncurses[0-9]$)
+    sudo apt-get install "$libncurses"
+}
+
 function googleChrome() {
     wget --directory-prefix=/home/brent/Downloads/ https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
     sudo dpkg -i /home/brent/Downloads/google-chrome-stable_current_amd64.deb
@@ -31,7 +36,6 @@ function dvdcss () {
     # For versions 15.1 and later
     # Run this after the libdvd-pkg is installed via apt
     sudo dpkg-reconfigure libdvd-pkg
-    exit
 }
 
 function youtubeDL() {
@@ -50,20 +54,16 @@ function blender() {
     sudo chown -R root:root /opt/blender
     sudo cp /opt/blender/blender.desktop /usr/share/applications/.
      # This was an attempt to make the icon, but was unsuccessful.
-     mkdir -p /home/brent/.icons/hicolor/48x48
-     sudo ln -s /opt/blender/blender /usr/bin/blender
+     #mkdir -p /home/brent/.icons/hicolor/48x48
+     #sudo ln -s /opt/blender/blender /usr/bin/blender
 }
 
-function vim() {
-    ln -s /home/brent/dotfiles/.vimrc /home/brent/.vimrc
-    ln -s /home/brent/dotfiles/.vim /home/brent/.vim
-    git ~/dotfiles/.vim/ clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-     python ~/dotfiles/.vim/bundle/YouCompleteMe/install.py --clang-completer --tern-completer
+function vundles() {
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/dotfiles/.vim/bundle/vundle 
 }
 
-function bashrc() {
-    mv ~/.bashrc ~/.bashrc_old
-    ln -s ~/dotfiles/.bashrc ~/.bashrc
+function YouCompleteMe() {
+    python ~/dotfiles/.vim/bundle/YouCompleteMe/install.py --clang-completer --tern-completer
 }
 
 function node() {
@@ -92,13 +92,20 @@ function postgres() {
 }
 
 #linuxHeaders
+#libncurses
 #googleChrome
 #virtualBox
 #dvdcss
 #youtubeDL
 #blender
+<<<<<<< HEAD
 #vim
 #bashrc
 node
+=======
+#vundles
+YouCompleteMe
+#node
+>>>>>>> 17da128c9a512b6dd735dd0c81bacf908c8e0942
 #anaconda
 #postgres

@@ -15,9 +15,14 @@ gfortran
 curl
 git
 nautilus-dropbox
+<<<<<<< HEAD
 # install manually see Google Doc sheet
 #youtube-dl
 nmap
+=======
+
+#youtube-dl # install using the extras installation script
+>>>>>>> 17da128c9a512b6dd735dd0c81bacf908c8e0942
 
 # Propmts
 powerline
@@ -37,16 +42,16 @@ nfs-common
 # audio tools
 gstreamer0.10-plugins-base
 gstreamer0.10-plugins-good
-gstreamer0.10-plugins-bad
-gstreamer0.10-plugins-ugly
+gstreamer1.0-plugins-bad
+gstreamer1.0-plugins-ugly
 libmp3lame0
-libavcodec-extra-56
+libavcodec-extra
 libav-tools
 audacity
 mpg123
-python-musicbrainz2
-libmusicbrainz5-0
 picard
+python-musicbrainz2
+puddletag
 
 # rubyripper dependencies
 #cd-discid 
@@ -99,7 +104,7 @@ impressive
 xscreensaver
 xscreensaver-data-extra
 xscreensaver-screensaver-bsod
-#blender # use the extras installation script
+blender 
 freecad
 
 # python
