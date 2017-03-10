@@ -19,7 +19,7 @@ sed -i -e '/iface wlan0 inet/a\\taddress 172.24.1.1\n\tnetmask 255.255.255.0\n\t
 sed -i -e 's/wpa-conf \/etc\/wpa_supplicant\/wpa_supplicant.conf/^#     wpa-conf \/etc\/wpa_supplicant\/wpa_supplicant.conf/' /etc/network/interfaces
 
 # For some reason the network/interfaces references wlan1, so comment them out.
-sed -i -e '/wlan1/s/^/#/' /etc/network/interfaces
+sed -i -e '/wlan1/s/^/#/'
 
 # Restart the dhcp server and re-bring up the interface.
 service dhcpcd restart
