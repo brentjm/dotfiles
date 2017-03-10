@@ -13,7 +13,6 @@
 
 function purgeExistingSoftware() {
     # Remove any possible conflicting software.
-    printf "\n \n \n Purging hostapd dnsmasq isc-dhcp-server udhcpd"
     rm -fr /etc/hostapd
     rm -f /etc/systemd/system/hostapd.service
     rm -f /etc/dnsmasq.conf 
@@ -30,61 +29,55 @@ function purgeExistingSoftware() {
 function installConfigureHostapd() {
     # hostapd is the access point daemon
     # https://w1.fi/hostapd/
-    printf "\n \n \n Install hostapd"
     apt-get install -y hostapd
 
     # Configure hostapd. This is done regardless of the DHCP server.
-    printf "\n \n \n Configuring /etc/systemd/system/hostapd.service"
-    cat > /etc/systemd/system/hostapd.service <<EOF
-[Unit]
-Description=Hostapd IEEE 802.11 Access Point
-After=sys-subsystem-net-devices-wlan0.device
-BindsTo=sys-subsystem-net-devices-wlan0.device
-
-[Service]
-Type=forking
-PIDFile=/var/run/hostapd.pid
-ExecStart=/usr/sbin/hostapd -B /etc/hostapd/hostapd.conf -P /var/run/hostapd.pid
-
-[Install]
-WantedBy=multi-user.target
-EOF
+#    cat > /etc/systemd/system/hostapd.service <<EOF
+#[Unit]
+#Description=Hostapd IEEE 802.11 Access Point
+#After=sys-subsystem-net-devices-wlan0.device
+#BindsTo=sys-subsystem-net-devices-wlan0.device
+#
+#[Service]
+#Type=forking
+#PIDFile=/var/run/hostapd.pid
+#ExecStart=/usr/sbin/hostapd -B /etc/hostapd/hostapd.conf -P /var/run/hostapd.pid
+#
+#[Install]
+#WantedBy=multi-user.target
+#EOF
 
     # See https://w1.fi/cgit/hostap/plain/hostapd/hostapd.conf
-    printf "\n \n \n Configuring /etc/hostapd/hostapd.conf" 
-    
-    # Do we want to include thses lines at the end?
     cat > /etc/hostapd/hostapd.conf <<EOF
 interface=wlan0
+driver=nl80211
 #driver=rtl871xdrv
 ssid=RPi
 hw_mode=g
 channel=6
 auth_algs=1
-country_code=US
 macaddr_acl=0
 ignore_broadcast_ssid=0
 wpa=2
 wpa_key_mgmt=WPA-PSK
-wpa_pairwise=CCMP
-rsn_pairwise=CCMP
+#wpa_pairwise=CCMP
+#rsn_pairwise=CCMP
 wpa_passphrase=RPiPasswd
-wpa_group_rekey=86400
+#wpa_group_rekey=86400
 ieee80211n=1
-wme_enabled=1
+#wme_enabled=1
+wmm_enabled=1
 #ht_capab=[HT40][SHORT-GI-20][DSSS_CCK-40]
+#country_code=US
 EOF
 
-    printf "\n \n \n Specifiying the hostapd.conf file location in /etc/default/hostapd"
     sed -i -e 's/^#*DAEMON_CONF=""/DAEMON_CONF="\/etc\/hostapd\/hostapd.conf"/' /etc/default/hostapd
-    printf "\n \n \n Specifiying the hostapd.conf file location in /etc/init.d/hostapd"
     sed -i -e 's/DAEMON_CONF=/DAEMON_CONF=\/etc\/hostapd\/hostapd.conf/' /etc/init.d/hostapd
 }
 
 
 function configureInterfaces() {
     # Configure the network interface
-    printf "\n \n \n Configuring /etc/network/interfaces"
     sed -i -e '/^allow-hotplug wlan0/d' /etc/network/interfaces
     sed -i -e '/iface wlan0 inet manual/d' /etc/network/interfaces
     sed -i -e '/wpa_supplicant/d' /etc/network/interfaces
@@ -106,7 +99,6 @@ EOF
 function useDNSMasq() {
     # Call this function to install and configure dnsmasq
     # https://en.wikipedia.org/wiki/Dnsmasq
-    printf "\n \n \n Installing and configuring dnsmasq"
     apt-get install -y dnsmasq
     cat > /etc/dnsmasq.conf <<EOF
 # The following two come from 
@@ -124,12 +116,11 @@ EOF
 
 function useIscDhcpServer() {
     # https://help.ubuntu.com/community/isc-dhcp-server
-    printf "\n \n \n Installing and configuring isc-dhcp-server"
     apt-get install -y isc-dhcp-server
 
     sed -i -e 's/^option domain-name "example.org"/#option domain-name "example.org"/' /etc/dhcp/dhcpd.conf
     sed -i -e 's/^option domain-name-server/#option domain-name-server/' /etc/dhcp/dhcpd.conf
-    sed -i -e s'/^#authoritative/authoritative/' /etc/dhcp/dhcpd.conf
+    sed -i -e 's/^#authoritative/authoritative/' /etc/dhcp/dhcpd.conf
 
     # This is questionable for the last line below.
     #option domain-name-servers 8.8.8.8, 8.8.4.4;
@@ -155,7 +146,6 @@ EOF
 
 function useUDHCP() {
     # https://udhcp.busybox.net/
-    printf "\n \n \n Installing and configuring udhcp"
     apt-get install -y udhcpd
 
     # TODO check if this file contains other information.
@@ -177,7 +167,6 @@ EOF
 
 
 function systemServices() {
-    printf "\n \n \n Starting services"
     # Start the service
     service hostapd start
 
@@ -192,7 +181,6 @@ function systemServices() {
 function removeWPASupplicant() {
     # Remove the WPA supplicant service 
     # May be needed for only certain distros.
-    printf "\n \n \n Removing the hostap.WPASupplicant service"
     mv /usr/share/dbus-1/system-services/fi.epitest.hostap.WPASupplicant.service ~/Downloads/.
 }
 
@@ -200,7 +188,6 @@ function removeWPASupplicant() {
 function NATForwarding() { 
     # This will configure the NAT to forward packets # eth0 <--> wlan0
     # Only do this if the computer will be plugged into an ethernet 
-    printf "\n \n \n Configuring the NAT"
     apt-get install -y iptables-persistent
     sed -i -e 's/#net.ipv4.ip_forward/net.ipv4.ip_forward/g' /etc/sysctl.conf
     sed -i -e 's/net.ipv4.ip_forward=0/net.ipv4.ip_forward=1/g' /etc/sysctl.conf
@@ -221,8 +208,8 @@ function NATForwarding() {
 purgeExistingSoftware
 installConfigureHostapd
 #configureInterfaces
-useDNSMasq
-#useIscDhcpServer
+#useDNSMasq
+useIscDhcpServer
 #useUDHCP
 #systemServices
 #NATForwarding
