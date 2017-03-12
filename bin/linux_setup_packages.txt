@@ -138,6 +138,7 @@ python-mdp
 python-qt4
 python-tables
 python-pandas
+flake8
 
 # communication
 #skype

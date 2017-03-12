@@ -98,14 +98,8 @@ function postgres() {
 #dvdcss
 #youtubeDL
 #blender
-<<<<<<< HEAD
-#vim
-#bashrc
-node
-=======
+#node
 #vundles
 YouCompleteMe
-#node
->>>>>>> 17da128c9a512b6dd735dd0c81bacf908c8e0942
 #anaconda
 #postgres
