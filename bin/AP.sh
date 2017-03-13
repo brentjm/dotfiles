@@ -2,12 +2,18 @@
 #Usage:
 #$sudo AP.sh
 
+
+function setup() {
+# Setup hostapd and dnsmasq
+
 apt-get install -y hostapd dnsmasq
 
 # Interface is configured by dhcpcd by default and we want it done in network interfaces.
 cat >> /etc/dhcpcd.conf << EOF
 denyinterfaces wlan0
 EOF
+
+sed -i -e 's/iface eth0 inet manual/iface eth0 inet dhcp/' /etc/network/interfaces
 
 # wlan0 should be static instead of manual
 sed -i -e 's/iface wlan0 inet manual/iface wlan0 inet static/' /etc/network/interfaces
@@ -16,7 +22,7 @@ sed -i -e 's/iface wlan0 inet manual/iface wlan0 inet static/' /etc/network/inte
 sed -i -e '/iface wlan0 inet/a\\taddress 172.24.1.1\n\tnetmask 255.255.255.0\n\tnetwork 172.24.1.0\n\tbroadcast 172.24.1.255' /etc/network/interfaces
 
 # Do not use wpa_supplicant
-sed -i -e 's/wpa-conf \/etc\/wpa_supplicant\/wpa_supplicant.conf/^#     wpa-conf \/etc\/wpa_supplicant\/wpa_supplicant.conf/' /etc/network/interfaces
+sed -i -e '/wpa_supplicant/s/^/#/' /etc/network/interfaces
 
 # For some reason the network/interfaces references wlan1, so comment them out.
 sed -i -e '/wlan1/s/^/#/' /etc/network/interfaces
@@ -91,10 +97,12 @@ domain-needed        # Don't forward short names
 bogus-priv           # Never forward addresses in the non-routed address spaces.  
 dhcp-range=172.24.1.50,172.24.1.150,12h # Assign IP addresses between 172.24.1.50 and 172.24.1.150 with a 12 hour lease time  
 EOF
+}
 
-# The remaining portion of the script sets up packet forwarding from
+
+function NATtables() {
+# Sets up packet forwarding from
 # eth0 <---> wlan0
-# Comment out the following if the computer will not be connected to a wired ethernet.
 
 # Remove the comment in sysctl for IP4 forwarding
 sed -i -e 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/' /etc/sysctl.conf
@@ -119,3 +127,25 @@ service dnsmasq start
 
 # reboot
 shutdown -r now
+}
+
+
+function removeNAT() {
+# Removes the NAT rules
+# Comment out in sysctl to stop IP4 forwarding
+sed -i -e 's/net.ipv4.ip_forward=1/#net.ipv4.ip_forward=1/' /etc/sysctl.conf
+
+# This will make the changes to the running OS for forwarding
+sh -c "echo 0 > /proc/sys/net/ipv4/ip_forward"
+
+# Flush the NAT tables
+iptables -F
+
+# Save the NAT rules.
+sh -c "iptables-save > /etc/iptables.ipv4.nat"
+}
+
+
+setup
+NATtables
+#removeNAT
