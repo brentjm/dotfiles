@@ -1,4 +1,6 @@
 #!/bin/bash
+# Usage:
+# $sudo ./wifi_hotspot.sh
 
 # Script to setup a wifi hotspot for Raspberry Pi
 # Set the SSID and and WPA_Passphrase in function configureHostapd below.
@@ -110,8 +112,9 @@ interface=wlan0
 dhcp-range=10.0.0.2,10.0.0.5,255.255.255.0,12h
 EOF
 
-    # Do we want to do this?
-    #echo "denyinterfaces wlan0" >> /etc/dhcpcd.conf
+    # Linux changed how the network is configured.
+    # Need to shut off dhcp.
+    echo "denyinterfaces wlan0" >> /etc/dhcpcd.conf
 }
 
 function useIscDhcpServer() {

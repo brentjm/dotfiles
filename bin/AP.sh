@@ -3,16 +3,30 @@
 #$sudo AP.sh
 
 
+function purgeExistingSoftware() {
+    # Remove any possible conflicting software.
+    rm -fr /etc/hostapd
+    rm -f /etc/dnsmasq.conf 
+    cp -f /etc/network/interfaces /etc/network/interfaces_old
+    apt-get remove --purge -y hostapd dnsmasq 
+    apt-get autoremove -y
+
+    ifdown wlan0
+}
+
+
 function setup() {
 # Setup hostapd and dnsmasq
 
 apt-get install -y hostapd dnsmasq
 
-# Interface is configured by dhcpcd by default and we want it done in network interfaces.
+# Interface is configured by dhcpcd by default and we want it done 
+# in network interfaces.
 cat >> /etc/dhcpcd.conf << EOF
 denyinterfaces wlan0
 EOF
 
+# Change eth0 to dhcp
 sed -i -e 's/iface eth0 inet manual/iface eth0 inet dhcp/' /etc/network/interfaces
 
 # wlan0 should be static instead of manual
