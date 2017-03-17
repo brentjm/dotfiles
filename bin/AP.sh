@@ -7,7 +7,10 @@ function purgeExistingSoftware() {
     # Remove any possible conflicting software.
     rm -fr /etc/hostapd
     rm -f /etc/dnsmasq.conf 
-    cp -f /etc/network/interfaces /etc/network/interfaces_old
+    # If this is the first time, copy the original interface file
+    cp -n /etc/network/interfaces /etc/network/interfaces_orig
+    # Copy back the original file
+    cp -f /etc/network/interfaces_old /etc/network/interfaces
     apt-get remove --purge -y hostapd dnsmasq 
     apt-get autoremove -y
 

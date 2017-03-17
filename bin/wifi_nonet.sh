@@ -13,8 +13,11 @@ function purgeExistingSoftware() {
     rm -fr /etc/hostapd
     rm -f /etc/systemd/system/hostapd.service
     rm -f /etc/dnsmasq.conf 
-    cp -f /etc/network/interfaces /etc/network/interfaces_old
-    apt-get remove --purge -y hostapd dnsmasq isc-dhcp-server udhcpd
+    # If this is the first time, copy the original interface file
+    cp -n /etc/network/interfaces /etc/network/interfaces_orig
+    # Copy back the original file
+    cp -f /etc/network/interfaces_old /etc/network/interfaces
+    apt-get remove --purge -y hostapd dnsmasq
     apt-get autoremove -y
 
     ifdown wlan0
@@ -23,15 +26,15 @@ function purgeExistingSoftware() {
 
 function setup() {
 # Setup hostapd and dnsmasq
-apt-get update && apt-get upgrade -y
+#apt-get update && apt-get upgrade -y
 apt-get install -y hostapd dnsmasq
 
 # TODO Should we use this?
 # Interface is configured by dhcpcd by default and we want it done 
 # in network interfaces.
-cat >> /etc/dhcpcd.conf << EOF
-denyinterfaces wlan0
-EOF
+#cat >> /etc/dhcpcd.conf << EOF
+#denyinterfaces wlan0
+#EOF
 
 # Configure hostapd.conf
 # This file clearly is picky.
@@ -56,7 +59,10 @@ EOF
 sed -i -e 's/#DAEMON_CONF=""/DAEMON_CONF="\/etc\/hostapd\/hostapd.conf"/' /etc/default/hostapd
 
 # Append some additional configurations to dnsmasq.
+# Leave the black spaces for clarity
 cat >> /etc/dnsmasq.conf << EOF
+
+
 #Pi3Hotspot Config
 #stop DNSmasq from using resolv.conf
 no-resolv
@@ -67,7 +73,7 @@ dhcp-range=10.0.0.3,10.0.0.20,12h
 EOF
 
 # Configure /etc/network/interfaces
-sed -i -e 's/auto lo/auto lo wlan0/' /etc/network/interfaces
+sed -i -e 's/auto lo/auto wlan0 lo/' /etc/network/interfaces
 sed -i -e '/wpa_supplicant/s/^/#/' /etc/network/interfaces
 }
 
@@ -81,4 +87,4 @@ function createAdHocNetwork() {
 }
 
 setup
-#createAdHocNetwork
+createAdHocNetwork
