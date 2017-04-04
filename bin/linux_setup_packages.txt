@@ -15,14 +15,14 @@ gfortran
 curl
 git
 nautilus-dropbox
-<<<<<<< HEAD
 # install manually see Google Doc sheet
 #youtube-dl
-nmap
-=======
 
-#youtube-dl # install using the extras installation script
->>>>>>> 17da128c9a512b6dd735dd0c81bacf908c8e0942
+# command line tools
+nmap
+
+# other tools
+tmux
 
 # Propmts
 powerline
