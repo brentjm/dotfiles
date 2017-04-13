@@ -13,28 +13,28 @@ function purgeExistingSoftware() {
     rm -fr /etc/hostapd
     rm -f /etc/systemd/system/hostapd.service
     rm -f /etc/dnsmasq.conf 
-    # If this is the first time, copy the original interface file
-    cp -n /etc/network/interfaces /etc/network/interfaces_orig
     # Copy back the original file
-    cp -f /etc/network/interfaces_old /etc/network/interfaces
+    cp -f /etc/network/interfaces_orig /etc/network/interfaces
     apt-get remove --purge -y hostapd dnsmasq
     apt-get autoremove -y
-
-    ifdown wlan0
+    shutdown -r now
 }
 
 
 function setup() {
-# Setup hostapd and dnsmasq
+# Setup hostapd and dnsmasq and configure the
+# /etc/network/interfaces file
+
 #apt-get update && apt-get upgrade -y
 apt-get install -y hostapd dnsmasq
 
-# TODO Should we use this?
-# Interface is configured by dhcpcd by default and we want it done 
-# in network interfaces.
-#cat >> /etc/dhcpcd.conf << EOF
-#denyinterfaces wlan0
-#EOF
+# If this is the first time, copy the original interface file
+cp -n /etc/network/interfaces /etc/network/interfaces_orig
+
+# As this script was originally a switch, the services are 
+# disabled by default.
+systemctl disable hostapd
+systemctl disable dnsmasq
 
 # Configure hostapd.conf
 # This file clearly is picky.
@@ -73,18 +73,93 @@ dhcp-range=10.0.0.3,10.0.0.20,12h
 EOF
 
 # Configure /etc/network/interfaces
-sed -i -e 's/auto lo/auto wlan0 lo/' /etc/network/interfaces
+sed -i -e 's/auto lo/auto lo wlan0/' /etc/network/interfaces
 sed -i -e '/wpa_supplicant/s/^/#/' /etc/network/interfaces
 }
 
 
-function createAdHocNetwork() {
+function WPA_details() {
+# This is only required if the WPA connection information
+# was added into the /etc/network/intefaces file.
+# NOTE: This requires modifying the network information!
+
+sed -i -e '/iface wlan0 inet dhcp/s/^/#/' /etc/network/interfaces
+sed -i -e '/wpa-ssid /s/^/#/' /etc/network/interfaces
+sed -i -e '/wpa-psk /s/^/#/' /etc/network/interfaces
+
+cat >> /etc/wpa_supplicant/wpa_supplicant.conf << EOF
+network={
+        ssid="mySSID"
+        psk="Router Password"
+        key_mgmt=WPA-PSK
+}
+EOF
+}
+
+
+function systemd_script() {
+# Create a script to start the wlan on a specified IP
+# NOTE: This requires modifying the ssids below!
+
+cat > /usr/bin/autohotspot << EOF
+#!/bin/bash
+#
+#Wifi config - if no prefered Wifi generate a hotspot
+#enter required ssids: ssids=('ssid1' 'ssid2')
+ssids=('mySSID1' 'mySSID2')
+#Main script
+createAdHocNetwork()
+{
     ip link set dev wlan0 down
     ip a add 10.0.0.5/24 dev wlan0
     ip link set dev wlan0 up
     service dnsmasq start
     service hostapd start
 }
+connected=false
+for ssid in "${ssids[@]}"
+do
+    if iw dev wlan0 scan ap-force | grep $ssid > /dev/null
+    then
+        wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf > /dev/null 2>&1
+        if dhclient -1 wlan0
+        then
+            connected=true
+            break
+        else
+            wpa_cli terminate
+            break
+        fi
+    else
+        echo "Not in range, WiFi with SSID:" $ssid
+    fi
+done
+if ! $connected; then
+    createAdHocNetwork
+fi
+EOF
 
+chmod 755 /usr/bin/autohotspot
+
+# Add a service file to systemd
+cat > /etc/systemd/system/autohotspot.service << EOF
+[Unit]
+Description=Generates a non-internet Hotspot for ssh when a listed ssid is not in range.
+After=network-online.target
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/autohotspot
+[Install]
+WantedBy=multi-user.target
+EOF
+
+systemctl enable autohotspot.service
+
+}
+
+
+#purgeExistingSoftware
 setup
-createAdHocNetwork
+#WPA_details
+systemd_script

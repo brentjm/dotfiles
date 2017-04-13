@@ -171,12 +171,12 @@ augroup PythonFiles
 " JS, HTML format
 augroup JSFiles
     autocmd!
-    autocmd BufNewFile,BufRead *.js, *.html, *.css
-        \ set tabstop=2
-        \ set softtabstop=2
-        \ set shiftwidth=2
-        \ set expandtab
-        \ set autoindent
+    au BufNewFile,BufRead *.js,*.html,*.css
+        \ set tabstop=2 |
+        \ set softtabstop=2 |
+        \ set shiftwidth=2 |
+        \ set expandtab |
+        \ set autoindent |
     augroup END
    
 "split navigations
