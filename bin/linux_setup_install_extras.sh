@@ -94,12 +94,12 @@ function postgres() {
 #linuxHeaders
 #libncurses
 #googleChrome
-#virtualBox
+virtualBox
 #dvdcss
 #youtubeDL
 #blender
 #node
 #vundles
-YouCompleteMe
+#YouCompleteMe
 #anaconda
 #postgres

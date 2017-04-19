@@ -23,6 +23,8 @@ nmap
 
 # other tools
 tmux
+tree
+pdftk
 
 # Propmts
 powerline
