@@ -25,6 +25,7 @@ nmap
 tmux
 tree
 pdftk
+silversearcher-ag
 
 # Propmts
 powerline
