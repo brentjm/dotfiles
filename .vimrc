@@ -28,6 +28,7 @@ Plugin 'powerline/powerline' ", {'rtp': 'powerline/bindings/vim/'} added below
 " programming
 Plugin 'Valloric/YouCompleteMe' "Requires a compiled component (see GitHub page)
 Plugin 'vim-syntastic/syntastic' "Syntax checking
+Plugin 'ternjs/tern_for_vim' "Tern based JavaScript editing support
 "Plugin 'wilywampa/vim-ipython' "Only worked vim compiles with sampe python
 "
 " python

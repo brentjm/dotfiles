@@ -66,6 +66,14 @@ function YouCompleteMe() {
     python ~/dotfiles/.vim/bundle/YouCompleteMe/install.py --clang-completer --tern-completer
 }
 
+function ternforvim() {
+    # https://github.com/majutsushi/tagbar/wiki
+    cd ~/dotfiles/.vim/bundle/tern_for_vim
+    npm install
+    # Can check if it's working by running
+    # $/home/brent/dotfiles/.vim/bundle/tern_for_vim/node_modules/.bin/tern
+}
+
 function node() {
     # Adding the NodeSource APT repository for Debian-based 
     # distributions repository AND the PGP key for verifying packages
@@ -101,5 +109,6 @@ virtualBox
 #node
 #vundles
 #YouCompleteMe
+ternforvim
 #anaconda
 #postgres
