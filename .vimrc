@@ -24,6 +24,7 @@ Plugin 'fholgado/minibufexpl.vim' "List buffers
 Plugin 'scrooloose/nerdtree' "File tree
 Plugin 'majutsushi/tagbar' "Generate tags for files (uses exuberant ctags)
 Plugin 'powerline/powerline' ", {'rtp': 'powerline/bindings/vim/'} added below
+Plugin 'wesQ3/vim-windowswap' "Window positioner
 
 " programming
 Plugin 'Valloric/YouCompleteMe' "Requires a compiled component (see GitHub page)
@@ -51,6 +52,13 @@ Plugin 'tpope/vim-fugitive' "Notes: edit commit-:Gedit, see diff-:Gdiff
 call vundle#end()
 
 filetype plugin indent on
+
+let mapleader=","
+"""****** Window swapping *****
+let g:windowswap_map_keys = 0 "prevent default bindings
+nnoremap <silent> <leader>yw :call WindowSwap#MarkWindowSwap()<CR>
+nnoremap <silent> <leader>pw :call WindowSwap#DoWindowSwap()<CR>
+nnoremap <silent> <leader>ww :call WindowSwap#EasyWindowSwap()<CR>
 
 """**** Python-Mode Configuration ******
 "" Activate rope
