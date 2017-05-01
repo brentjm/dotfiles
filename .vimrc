@@ -54,6 +54,10 @@ call vundle#end()
 filetype plugin indent on
 
 let mapleader=","
+
+" Silvers searcher Ag
+let g:ackprg = 'ag --nogroup --nocolor --column'
+
 """****** Window swapping *****
 let g:windowswap_map_keys = 0 "prevent default bindings
 nnoremap <silent> <leader>yw :call WindowSwap#MarkWindowSwap()<CR>
