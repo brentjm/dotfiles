@@ -63,13 +63,14 @@ function vundles() {
 }
 
 function YouCompleteMe() {
+    sudo apt-get install python-dev
     python ~/dotfiles/.vim/bundle/YouCompleteMe/install.py --clang-completer --tern-completer
 }
 
 function ternforvim() {
     # https://github.com/majutsushi/tagbar/wiki
     cd ~/dotfiles/.vim/bundle/tern_for_vim
-    npm install
+    sudo -u brent npm install
     # Can check if it's working by running
     # $/home/brent/dotfiles/.vim/bundle/tern_for_vim/node_modules/.bin/tern
 }
@@ -82,8 +83,8 @@ function node() {
     # Or use nvm. CHECK THE VERSION NUMBER!!!
     sudo apt-get install build-essential libssl-dev
     sudo -u brent curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | sudo -u brent bash
-    source ~/.bashrc
-    sudo -r brent npm install node
+    sudo -u brent source ~/.bashrc
+    sudo -u brent nvm install node
 }
 
 function anaconda() {
@@ -102,13 +103,13 @@ function postgres() {
 #linuxHeaders
 #libncurses
 #googleChrome
-virtualBox
+#virtualBox
 #dvdcss
 #youtubeDL
 #blender
 #node
 #vundles
-#YouCompleteMe
-ternforvim
+YouCompleteMe
+#ternforvim
 #anaconda
 #postgres
