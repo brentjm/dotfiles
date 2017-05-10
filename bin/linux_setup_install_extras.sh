@@ -63,8 +63,10 @@ function vundles() {
 }
 
 function YouCompleteMe() {
-    sudo apt-get install python-dev
-    python ~/dotfiles/.vim/bundle/YouCompleteMe/install.py --clang-completer --tern-completer
+    sudo apt-get install build-essential cmake python-dev python3-dev
+    # The following doesn't work, because node is local to brent and sudo -u doesn't pass the enviroment path for node
+    #sudo -u brent python ~/dotfiles/.vim/bundle/YouCompleteMe/install.py --clang-completer --tern-completer
+    echo "Finish installation by: ~/.vim/bundle/YouCompleteMe/install.py"
 }
 
 function ternforvim() {

@@ -2,8 +2,8 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim/
-"set rtp+=~/.vim/bundle/vundle/
+"set rtp+=~/.vim/bundle/Vundle.vim/
+set rtp+=~/.vim/bundle/vundle/
 "call vundle#rc()
 call vundle#begin()
 
@@ -190,6 +190,7 @@ augroup JSFiles
         \ set shiftwidth=2 |
         \ set expandtab |
         \ set autoindent |
+        \ set foldmethod=indent |
     augroup END
    
 "split navigations
