@@ -184,10 +184,10 @@ augroup PythonFiles
 " JS, HTML format
 augroup JSFiles
     autocmd!
-    au BufNewFile,BufRead *.js,*.html,*.css
-        \ set tabstop=2 |
-        \ set softtabstop=2 |
-        \ set shiftwidth=2 |
+    au BufNewFile,BufRead *.js,*.html,*.css,*.jsx
+        \ set tabstop=4 |
+        \ set softtabstop=4 |
+        \ set shiftwidth=4 |
         \ set expandtab |
         \ set autoindent |
         \ set foldmethod=indent |

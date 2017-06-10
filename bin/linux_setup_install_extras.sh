@@ -111,7 +111,7 @@ function postgres() {
 #blender
 #node
 #vundles
-YouCompleteMe
+#YouCompleteMe
 #ternforvim
 #anaconda
-#postgres
+postgres
