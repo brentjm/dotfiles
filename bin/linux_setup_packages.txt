@@ -15,8 +15,10 @@ gfortran
 curl
 git
 nautilus-dropbox
-# install manually see Google Doc sheet
-#youtube-dl
+#youtube-dl # Install manually
+apt-transport-https 
+ca-certificates
+
 
 # command line tools
 nmap
@@ -163,3 +165,5 @@ vde2
 
 # web development tools
 xsltproc
+
+# Docker
