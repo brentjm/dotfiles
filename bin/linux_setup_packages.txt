@@ -1,8 +1,8 @@
 # Linux libraries
-#linux-headers-4.4.0-21-generic # use the extras installation
 ubuntu-restricted-extras
-libncurses.
 dconf-editor
+build-essential 
+libssl-dev
 
 # compilers
 g\+\+
@@ -114,6 +114,7 @@ freecad
 
 # python
 python-dev
+python3-dev
 python-virtualenv
 virtualenvwrapper
 python-setuptools

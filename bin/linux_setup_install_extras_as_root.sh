@@ -19,12 +19,23 @@ function googleChrome() {
 }
 
 function virtualBox() {
-    echo -n "deb http://download.virtualbox.org/virtualbox/debian xenial contrib" > virtualbox.list
+    # Install virtualbox as the most corrent version
+    # Note that this scipt requires some modifications to work properly for versions.
+
+    # Make sure to update the ubuntu version.
+    #echo "Ubuntu version code name  (lsb_release -a)"
+    #read codename
+    codename=$(lsb_release -c | awk '{print $2}')
+    echo -n "deb http://download.virtualbox.org/virtualbox/debian $codename contrib" > virtualbox.list
     sudo mv virtualbox.list /etc/apt/sources.list.d/.
     wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
     wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
     sudo apt-get update
-    sudo apt-get install virtualbox-5.1
+    # Make sure to update the version.
+    echo "Virtualbox version?"
+    read "version"
+    #sudo apt-get install virtualbox-5.1
+    sudo apt-get install virtualbox-"$version"
 }
 
 function dvdcss () {
@@ -58,60 +69,17 @@ function blender() {
      #sudo ln -s /opt/blender/blender /usr/bin/blender
 }
 
-function vundles() {
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/dotfiles/.vim/bundle/vundle 
-}
-
-function YouCompleteMe() {
-    sudo apt-get install build-essential cmake python-dev python3-dev
-    # The following doesn't work, because node is local to brent and sudo -u doesn't pass the enviroment path for node
-    #sudo -u brent python ~/dotfiles/.vim/bundle/YouCompleteMe/install.py --clang-completer --tern-completer
-    echo "Finish installation by: ~/.vim/bundle/YouCompleteMe/install.py"
-}
-
-function ternforvim() {
-    # https://github.com/majutsushi/tagbar/wiki
-    cd ~/dotfiles/.vim/bundle/tern_for_vim
-    sudo -u brent npm install
-    # Can check if it's working by running
-    # $/home/brent/dotfiles/.vim/bundle/tern_for_vim/node_modules/.bin/tern
-}
-
-function node() {
-    # Adding the NodeSource APT repository for Debian-based 
-    # distributions repository AND the PGP key for verifying packages
-    #curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-    #sudo apt-get install -y nodejs
-    # Or use nvm. CHECK THE VERSION NUMBER!!!
-    sudo apt-get install build-essential libssl-dev
-    sudo -u brent curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | sudo -u brent bash
-    sudo -u brent source ~/.bashrc
-    sudo -u brent nvm install node
-}
-
-function anaconda() {
-    wget --directory-prefix=/home/brent/Downloads/ https://repo.continuum.io/archive/Anaconda3-4.3.0-Linux-x86_64.sh
-    md5sum ~/Downloads/Anaconda*.sh
-    sha256sum ~/Downloads/Anaconda*.sh
-    sudo -u brent bash ~/Downloads/Anaconda3-4.3.0-Linux-x86_64.sh 
-}
-
 function postgres() {
     sudo apt-get install -y postgresql 
     ver=$(psql --version | awk -F " " '{print $3}' | cut -c -3)
     sudo apt-get install -y libpq-dev postgresql-server-dev-${ver}
 }
 
-#linuxHeaders
-#libncurses
-#googleChrome
-#virtualBox
+linuxHeaders
+libncurses
+googleChrome
+virtualBox
 #dvdcss
-#youtubeDL
+youtubeDL
 #blender
-#node
-#vundles
-#YouCompleteMe
-#ternforvim
-#anaconda
-postgres
+#postgres
