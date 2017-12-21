@@ -49,8 +49,22 @@ function anaconda() {
     bash ~/Downloads/Anaconda"$pythonversion"-"$condaversion"-Linux-x86_64.sh 
 }
 
-node
-vundles
-YouCompleteMe
-ternforvim
+function git() {
+    # Create the .netrc file
+    echo "machine github.com" > ~/.netrc_trial
+    sed -i -e "/^/{
+    a\login brentjm
+    a\password my_password
+    a\ 
+    a\machine api.github.com
+    a\login brentjm
+    a\password my_password
+    }" ~/.netrc_trial
+}
+
+#node
+#vundles
+#YouCompleteMe
+#ternforvim
 #anaconda
+git
