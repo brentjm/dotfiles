@@ -64,7 +64,7 @@ function git() {
 
 #node
 #vundles
-#YouCompleteMe
-#ternforvim
+YouCompleteMe
+ternforvim
 #anaconda
-git
+#git

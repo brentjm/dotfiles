@@ -40,5 +40,5 @@ function add_users () {
     done
 }
 
-configure_groups
-#add_users
+#configure_groups
+add_users

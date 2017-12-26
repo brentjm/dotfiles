@@ -34,7 +34,7 @@ function virtualBox() {
     # Make sure to update the version.
     echo "Virtualbox version?"
     read "version"
-    #sudo apt-get install virtualbox-5.1
+    #sudo apt-get install virtualbox-5.2
     sudo apt-get install virtualbox-"$version"
 }
 
