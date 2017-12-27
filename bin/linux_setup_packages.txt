@@ -3,6 +3,7 @@ ubuntu-restricted-extras
 dconf-editor
 build-essential 
 libssl-dev
+dkms
 
 # compilers
 g\+\+
