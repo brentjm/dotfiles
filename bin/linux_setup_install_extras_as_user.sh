@@ -18,7 +18,8 @@ function vundles() {
 }
 
 function YouCompleteMe() {
-    python ~/dotfiles/.vim/bundle/YouCompleteMe/install.py --clang-completer --tern-completer
+    #python ~/dotfiles/.vim/bundle/YouCompleteMe/install.py --clang-completer --tern-completer
+    python ~/dotfiles/.vim/bundle/YouCompleteMe/install.py --clang-completer --tern-completer --system-libclang
 }
 
 function ternforvim() {
@@ -62,9 +63,21 @@ function git() {
     }" ~/.netrc_trial
 }
 
+function powerline() {
+  if [ -f `which powerline-daemon` ]; then
+    powerline-daemon -q
+    POWERLINE_BASH_CONTINUATION=1
+    POWERLINE_BASH_SELECT=1
+    . /usr/share/powerline/bindings/bash/powerline.sh
+  fi
+}
+
+
+
 #node
 #vundles
 #YouCompleteMe
 #ternforvim
 #anaconda
-git
+#git
+#powerline
