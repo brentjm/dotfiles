@@ -82,6 +82,8 @@ function docker_setup() {
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
     sudo apt-get update
     sudo apt-get -y install docker-ce
+    sudo usermod -aG docker brent
+    echo "Must logout for new user in groups to be valid"
 }                  
 
 #linuxHeaders
