@@ -10,10 +10,11 @@ function node() {
     curl -o- https://raw.githubusercontent.com/creationix/nvm/"$version"/install.sh | bash
     source ~/.bashrc
     nvm install node
+    echo "May have to run nvm install node as .bashrc file cannot be sourced"
 }
 
 function vundles() {
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/dotfiles/.vim/bundle/vundle 
+    git clone https://github.com/VundleVim/Vundle.vim.git /home/brent/dotfiles/.vim/bundle/vundle 
     vim +PluginInstall +qall
     #echo "Must run :PluginsInstall in vim"
 }
@@ -45,7 +46,7 @@ function anaconda() {
     bash ~/Downloads/Anaconda"$pythonversion"-"$condaversion"-Linux-x86_64.sh 
 }
 
-function git() {
+function netrc_file() {
     # Create the .netrc file
     echo "machine github.com" > ~/.netrc_trial
     sed -i -e "/^/{
@@ -58,21 +59,32 @@ function git() {
     }" ~/.netrc_trial
 }
 
+function git_config() {
+    cat > ~/.gitconfig <<EOF
+[user]
+    email = brent_maranzano@yahoo.com
+    name = brentjm
+EOF
+}
+
 function powerline() {
-  if [ -f `which powerline-daemon` ]; then
+  cat >> ~/.bashrc <<EOF
+  if [ -f \`which powerline-daemon\` ]; then
     powerline-daemon -q
     POWERLINE_BASH_CONTINUATION=1
     POWERLINE_BASH_SELECT=1
     . /usr/share/powerline/bindings/bash/powerline.sh
   fi
+EOF
 }
 
 
 
 #node
 #vundles
-YouCompleteMe
-ternforvim
+#YouCompleteMe
+#ternforvim
 #anaconda
-#git
+#netrc_file
+git_config
 #powerline
