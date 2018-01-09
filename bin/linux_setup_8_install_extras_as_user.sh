@@ -14,7 +14,8 @@ function node() {
 
 function vundles() {
     git clone https://github.com/VundleVim/Vundle.vim.git ~/dotfiles/.vim/bundle/vundle 
-    echo "Must run :PluginsInstall in vim"
+    vim +PluginInstall +qall
+    #echo "Must run :PluginsInstall in vim"
 }
 
 function YouCompleteMe() {
@@ -28,12 +29,6 @@ function ternforvim() {
     npm install
     # Can check if it's working by running
     # $/home/brent/dotfiles/.vim/bundle/tern_for_vim/node_modules/.bin/tern
-}
-
-function vi() {
-    vundles
-    YouCompleteMe
-    ternforvim
 }
 
 function anaconda() {
@@ -76,8 +71,8 @@ function powerline() {
 
 #node
 #vundles
-#YouCompleteMe
-#ternforvim
+YouCompleteMe
+ternforvim
 #anaconda
 #git
 #powerline

@@ -28,8 +28,8 @@ function configure_groups () {
     fi
 }
 
-function add_users () {
-    # add users 
+function add_users_100_gid () {
+    # add users all with group ID of 100
     uid=1001 
     for u in "rebekah" "jakob" "julia" "logan"
     do
@@ -40,5 +40,18 @@ function add_users () {
     done
 }
 
-configure_groups
-#add_users
+function add_users () {
+    # add users with unique group IDs
+    uid=1001 
+    gid=1001
+    for u in "rebekah" "jakob" "julia" "logan"
+    do
+        echo "adduser -m --gid $gid --uid $uid -p Bonjour! $u"
+        adduser -m --gid $gid --uid $uid -p "Bonjour!" $u
+        uid=$((uid+1))
+        gid=$((gid+1))
+    done
+}
+
+#configure_groups
+add_users
