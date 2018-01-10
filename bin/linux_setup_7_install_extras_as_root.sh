@@ -75,23 +75,11 @@ function postgres() {
     sudo apt-get install -y libpq-dev postgresql-server-dev-${ver}
 }
 
-function docker_setup() {
-    sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
-    sudo -u brent curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-    sudo apt-key fingerprint 0EBFCD88
-    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-    sudo apt-get update
-    sudo apt-get -y install docker-ce
-    sudo usermod -aG docker brent
-    echo "Must logout for new user in groups to be valid"
-}                  
-
-#linuxHeaders
-#libncurses
-#googleChrome
-#virtualBox
+linuxHeaders
+libncurses
+googleChrome
+virtualBox
 #dvdcss
-#youtubeDL
+youtubeDL
 #blender
 #postgres
-docker_setup

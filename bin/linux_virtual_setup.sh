@@ -9,7 +9,7 @@
 
 function install_packages() {
     # Install minimum packages
-    sudo apt-get install -y build-essential git vim curl wget cmake clang powerline python-dev
+    sudo apt-get install -y build-essential git vim curl wget cmake clang python-dev powerline
 }
 
 function guest_additions() {
@@ -24,5 +24,5 @@ function dotfiles() {
     git clone https://github.com/brentjm/dotfiles.git ~
 }
 
-#install_packages
-guest_additions
+install_packages
+#guest_additions
