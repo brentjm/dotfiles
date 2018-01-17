@@ -32,6 +32,13 @@ function install_YouCompleteMe() {
     python ~/dotfiles/.vim/bundle/YouCompleteMe/install.py --clang-completer --tern-completer --system-libclang
 }
 
+function install_jsSyntaxChecking() {
+    #npm install -g jshint
+    npm install -g eslint
+    npm install -g babel-eslint
+    npm install -g eslint-plugin-react
+}
+
 function install_powerline() {
 cat >> ~/.basrhc <<EOF
 if [ -f \`which powerline-daemon\` ]; then
@@ -82,6 +89,7 @@ EOF
 #install_vundles
 #install_ternforvim
 #install_YouCompleteMe
+#install_jsSyntaxChecking
 #install_anaconda
 #install_powerline
 create_netrc

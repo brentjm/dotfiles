@@ -2,7 +2,7 @@
 
 function make_links() {
     cd ~
-    for element in .bashrc .vimrc .inputrc .gvimrc .vim .tern-config .jshintrc bin
+    for element in .bashrc .vimrc .inputrc .gvimrc .vim .tern-config .eslintrc .jshintrc bin
     do
         [ -e "$element" ] && mv "$element" "$element_old"
         ln -s dotfiles/"$element"

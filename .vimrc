@@ -31,9 +31,9 @@ Plugin 'Valloric/YouCompleteMe' "Requires a compiled component (see GitHub page)
 Plugin 'vim-syntastic/syntastic' "Syntax checking
 Plugin 'ternjs/tern_for_vim' "Tern based JavaScript editing support
 "Plugin 'wilywampa/vim-ipython' "Only worked vim compiles with sampe python
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
+Plugin 'MarcWeber/vim-addon-mw-utils' "Used for snipmate
+Plugin 'tomtom/tlib_vim' "Used for snipmate
+Plugin 'garbas/vim-snipmate' "Used for snipmate
 "
 " python
 Plugin 'tmhedberg/SimpylFold' "Better folding for Python
@@ -128,6 +128,8 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+let g:syntastic_javascript_checkers = ['eslint']
+
 "******* Jedi-Vim *********
 "let g:jedi#completions_enabled = 1
 
@@ -148,6 +150,9 @@ map <F2> :NERDTreeToggle<CR>
 
 "****** Tagbar ***********
 nmap <F8> :TagbarToggle<CR>
+
+"****** Snippets  ***********
+let g:UltiSnipsExpandTrigger = '<C-j>'
 
 "******** General configuration ************
 
