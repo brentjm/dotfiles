@@ -1,11 +1,10 @@
 {
    "libs": [
      "react",
-     "ecmascript",
+     "ecmascript"
    ],
    "plugins": {
        "doc_comment": null,
        "node": {}
    }
 }
-

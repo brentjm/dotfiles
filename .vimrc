@@ -20,7 +20,7 @@ Plugin 'jnurmine/Zenburn'
 " general
 Plugin 'ctrlpvim/ctrlp.vim' "Fuzzy searching
 Plugin 'tpope/vim-surround' "Insert surrounding characters on text (ysiw, cs)
-Plugin 'fholgado/minibufexpl.vim' "List buffers
+"Plugin 'fholgado/minibufexpl.vim' "List buffers
 Plugin 'scrooloose/nerdtree' "File tree
 Plugin 'majutsushi/tagbar' "Generate tags for files (uses exuberant ctags)
 Plugin 'powerline/powerline' ", {'rtp': 'powerline/bindings/vim/'} added below
@@ -31,6 +31,9 @@ Plugin 'Valloric/YouCompleteMe' "Requires a compiled component (see GitHub page)
 Plugin 'vim-syntastic/syntastic' "Syntax checking
 Plugin 'ternjs/tern_for_vim' "Tern based JavaScript editing support
 "Plugin 'wilywampa/vim-ipython' "Only worked vim compiles with sampe python
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
 "
 " python
 Plugin 'tmhedberg/SimpylFold' "Better folding for Python

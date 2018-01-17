@@ -19,17 +19,17 @@ function install_vundles() {
     #echo "Must run :PluginsInstall in vim"
 }
 
-function install_YouCompleteMe() {
-    #python ~/dotfiles/.vim/bundle/YouCompleteMe/install.py --clang-completer --tern-completer
-    python ~/dotfiles/.vim/bundle/YouCompleteMe/install.py --clang-completer --tern-completer --system-libclang
-}
-
 function install_ternforvim() {
     # https://github.com/majutsushi/tagbar/wiki
     cd ~/dotfiles/.vim/bundle/tern_for_vim
     npm install
     # Can check if it's working by running
     # $/home/brent/dotfiles/.vim/bundle/tern_for_vim/node_modules/.bin/tern
+}
+
+function install_YouCompleteMe() {
+    #python ~/dotfiles/.vim/bundle/YouCompleteMe/install.py --clang-completer --tern-completer
+    python ~/dotfiles/.vim/bundle/YouCompleteMe/install.py --clang-completer --tern-completer --system-libclang
 }
 
 function install_powerline() {
@@ -80,8 +80,8 @@ EOF
 
 #install_node
 #install_vundles
-#install_YouCompleteMe
 #install_ternforvim
+#install_YouCompleteMe
 #install_anaconda
 #install_powerline
 create_netrc
