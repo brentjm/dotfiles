@@ -88,9 +88,9 @@ EOF
 #install_node
 #install_vundles
 #install_ternforvim
-#install_YouCompleteMe
+install_YouCompleteMe
 #install_jsSyntaxChecking
 #install_anaconda
 #install_powerline
-create_netrc
-create_gitconfig
+#create_netrc
+#create_gitconfig

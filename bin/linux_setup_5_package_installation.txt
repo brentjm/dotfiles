@@ -146,6 +146,8 @@ python-qt4
 python-tables
 python-pandas
 flake8
+pylint
+pylint3
 
 # communication
 #skype
