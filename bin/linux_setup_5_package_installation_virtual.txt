@@ -1,0 +1,43 @@
+# Linux libraries
+ubuntu-restricted-extras
+dconf-editor
+build-essential 
+libssl-dev
+dkms
+
+# compilers
+g\+\+
+gcc
+make
+cmake
+gfortran
+
+# web transfer tools
+curl
+git
+apt-transport-https 
+ca-certificates
+
+# other tools
+tmux
+tree
+silversearcher-ag
+
+# Propmts
+powerline
+python-powerline
+python3-powerline
+
+# Web browser
+chromium-browser
+
+# vim
+vim
+vim-gnome
+vim-gnome-py2
+
+# python
+python-dev
+python3-dev
+python-virtualenv
+virtualenvwrapper
