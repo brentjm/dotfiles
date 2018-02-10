@@ -44,5 +44,30 @@ function make_links () {
 }
 
 
+function networkshares_links () {
+    # Create symbolic links on users Desktop to the network drive
+    for u in 'brent' 'rebekah' 'jakob' 'julia' 'logan' 
+    do
+        ln -s -t /home/$u/Desktop /media/networkshare/shares
+        mv /home/$u/Desktop/shares /home/$u/Desktop/Network\ Shares
+        chown --no-dereference $u:$u /home/$u/Desktop/Network\ Shares
+        ln -s -t /home/$u/Desktop /media/networkshare/$u
+        mv /home/$u/Desktop/$u /home/$u/Desktop/My\ Network\ Drive
+        chown --no-dereference $u:$u /home/$u/Desktop/My\ Network\ Drive
+    done
+}
+
+function undo_networkshares_links () {
+    # Create symbolic links on users Desktop to the network drive
+    for u in 'brent' 'rebekah' 'jakob' 'julia' 'logan' 
+    do
+        unlink /home/$u/Desktop/Network\ Shares
+        unlink /home/$u/Desktop/My\ Network\ Drive
+    done
+}
+
 #make_user_folders
-make_links
+#make_links
+networkshares_links
+#undo_networkshares_links
+
