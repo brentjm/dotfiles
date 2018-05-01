@@ -92,4 +92,4 @@ function install_docker() {
 #youtubeDL
 #blender
 #postgres
-#install_docker
+install_docker

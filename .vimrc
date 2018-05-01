@@ -58,7 +58,10 @@ filetype plugin indent on
 
 let mapleader=","
 
-" Silvers searcher Ag
+"******* basic settings *********
+set wildmenu
+
+"******* Silvers searcher Ag *******
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
 """****** Window swapping *****
@@ -147,7 +150,19 @@ set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim/
 set laststatus=2
 
 "****** NERDTree mapping ***********
-map <F2> :NERDTreeToggle<CR>
+"map <F2> :NERDTreeToggle<CR>
+
+"***** netrw *********
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+"let g:netrw_browse_split = 4
+"let g:netrw_altv = 1
+"let g:netrw_winsize = 20
+"map <F2> :Lexplore<CR>
+"augroup ProjectDrawer
+"  autocmd!
+"  autocmd VimEnter * :Vexplore
+"augroup END
 
 "****** Tagbar ***********
 nmap <F8> :TagbarToggle<CR>
