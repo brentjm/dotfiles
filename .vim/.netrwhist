@@ -1,9 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/home/brent/Documents/RxApps/client/src/app'
-let g:netrw_dirhist_2='/home/brent/Documents/RxApps/client/src/app/packageapp'
-let g:netrw_dirhist_3='/home/brent/Documents/RxApps/client/src/app/packageapp/components'
-let g:netrw_dirhist_4='/home/brent/Documents/RxApps/client/src/app/packageapp/components/editnode-components'
-let g:netrw_dirhist_5='/home/brent/Documents/leaf-filter/client/src/app/filter-app/components/window-components'
-let g:netrw_dirhist_6='/home/brent/Documents/leaf-filter/client/node_modules'
-let g:netrw_dirhist_7='/home/brent/Documents/leaf-filter/mcu-files/rpi'
+let g:netrw_dirhist_cnt =0

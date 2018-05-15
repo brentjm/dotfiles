@@ -1,9 +1,11 @@
 # Linux libraries
 ubuntu-restricted-extras
-dconf-editor
 build-essential 
-libssl-dev
+linux-headers-generic
+linux-headers-virtual
 dkms
+dconf-editor
+libssl-dev
 
 # compilers
 g\+\+
