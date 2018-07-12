@@ -16,6 +16,7 @@ gfortran
 
 #libraries
 libclang1
+cifs-utils
 
 # web transfer tools
 curl
