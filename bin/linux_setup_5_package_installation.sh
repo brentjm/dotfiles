@@ -9,7 +9,7 @@
 #    apt_install - install packages with apt
 
 #useage:
-#$sudo bash linux_setup_package_installation.sh linux_setup_packages.txt > installation_output.txt
+#$sudo bash linux_setup_5_package_installation.sh linux_setup_5_package_installation.txt
 
 
 function read_file () {

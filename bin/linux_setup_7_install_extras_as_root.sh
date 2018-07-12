@@ -23,16 +23,17 @@ function virtualBox() {
     # Note that this scipt requires some modifications to work properly for versions.
 
     # Make sure to update the ubuntu version.
-    #echo "Ubuntu version code name  (lsb_release -a)"
     #read codename
     codename=$(lsb_release -c | awk '{print $2}')
-    echo -n "deb http://download.virtualbox.org/virtualbox/debian $codename contrib" > virtualbox.list
-    sudo mv virtualbox.list /etc/apt/sources.list.d/.
+    if [ ! -f "/etc/apt/sources.list.d/virtualbox.list" ]; then
+        echo -n "deb http://download.virtualbox.org/virtualbox/debian $codename contrib" > virtualbox.list
+        sudo mv virtualbox.list /etc/apt/sources.list.d/.
+    fi
     wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
     wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
     sudo apt-get update
     # Make sure to update the version.
-    echo "Virtualbox version?"
+    echo "Virtualbox version (e.g. 5.2)?"
     read "version"
     #sudo apt-get install virtualbox-5.2
     sudo apt-get install virtualbox-"$version"
@@ -46,6 +47,7 @@ function dvdcss () {
     
     # For versions 15.1 and later
     # Run this after the libdvd-pkg is installed via apt
+    libdvd-pkg
     sudo dpkg-reconfigure libdvd-pkg
 }
 
@@ -58,7 +60,9 @@ function youtubeDL() {
 
 function blender() {
     # Install the latest version of Blender.
-    wget --directory-prefix=/home/brent/Downloads/ http://download.blender.org/release/Blender2.78/blender-2.78c-linux-glibc219-x86_64.tar.bz2
+    echo "Blender version (e.g. 2.78)?"
+    read "version"
+    wget --directory-prefix=/home/brent/Downloads/ http://download.blender.org/release/Blender"$version"/blender-"$version"c-linux-glibc219-x86_64.tar.bz2
     tar -xjf /home/brent/Downloads/blender*.tar.bz2
     sudo mv blender* /opt/blender
     sudo cp /opt/blender/blender.desktop /home/brent/.local/share/applications/.
@@ -87,9 +91,9 @@ function install_docker() {
 #linuxHeaders
 #libncurses
 #googleChrome
-#virtualBox
+virtualBox
 #dvdcss
 #youtubeDL
 #blender
 #postgres
-install_docker
+#install_docker

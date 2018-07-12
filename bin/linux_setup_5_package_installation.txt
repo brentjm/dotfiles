@@ -14,6 +14,9 @@ make
 cmake
 gfortran
 
+#libraries
+libclang1
+
 # web transfer tools
 curl
 git
@@ -21,7 +24,6 @@ nautilus-dropbox
 #youtube-dl # Install manually
 apt-transport-https 
 ca-certificates
-
 
 # command line tools
 nmap
@@ -31,11 +33,10 @@ tmux
 tree
 pdftk
 silversearcher-ag
+keepassx
 
 # Propmts
 powerline
-python-powerline
-python3-powerline
 
 # Web browser
 chromium-browser
@@ -45,7 +46,7 @@ smartmontools
 #xsane-common
 
 # file tools
-nfs-common
+#nfs-common
 
 # audio tools
 gstreamer0.10-plugins-base
@@ -75,7 +76,6 @@ puddletag
 
 # video tools
 vlc
-libdvd-pkg
 
 # vim
 vim
@@ -83,6 +83,8 @@ vim-gnome
 vim-gnome-py2
 vim-latexsuite
 exuberant-ctags
+#python-powerline
+python3-powerline
 
 # latex
 texlive
@@ -116,48 +118,48 @@ blender
 freecad
 
 # python
-python-dev
-python3-dev
-python-virtualenv
-virtualenvwrapper
-python-setuptools
-ipython
-ipython3
-#ipython-qtconsole
-python-configobj
-python-numpy
-python-scipy
-python-matplotlib
-python-h5py
-python-imaging
-python-vtk6
-python-pyvtk
-python-wxgtk2.8
-python-wxtools
-python-mdp
-python-opencv
-python-pygame
-python-pyglet
-python-sparse
-python-mpi4py
-python-opengl
-python-scitools
-python-scientific
-python-mdp
-python-qt4
-python-tables
-python-pandas
-flake8
-pylint
-pylint3
+#python-dev
+#python3-dev
+#python-virtualenv
+#virtualenvwrapper
+#python-setuptools
+#ipython
+#ipython3
+##ipython-qtconsole
+#python-configobj
+#python-numpy
+#python-scipy
+#python-matplotlib
+#python-h5py
+#python-imaging
+#python-vtk6
+#python-pyvtk
+#python-wxgtk2.8
+#python-wxtools
+#python-mdp
+#python-opencv
+#python-pygame
+#python-pyglet
+#python-sparse
+#python-mpi4py
+#python-opengl
+#python-scitools
+#python-scientific
+#python-mdp
+#python-qt4
+#python-tables
+#python-pandas
+#flake8
+#pylint
+#pylint3
 
 # communication
 #skype
 
 # wine
-wine
-winetricks
-playonlinux
+#wine
+#winetricks
+#playonlinux
 
 # virtualbox
 #virtualbox # use extras installation script
@@ -167,9 +169,9 @@ playonlinux
 vitables
 
 # remote machines
-vde2
+#vde2
 
 # web development tools
-xsltproc
+#xsltproc
 
 # Docker

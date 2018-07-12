@@ -16,7 +16,7 @@ function install_node() {
 function install_vundles() {
     git clone https://github.com/VundleVim/Vundle.vim.git ~/dotfiles/.vim/bundle/vundle 
     vim +PluginInstall +qall
-    #echo "Must run :PluginsInstall in vim"
+   #echo "Must run :PluginsInstall in vim"
 }
 
 function install_ternforvim() {
@@ -28,7 +28,7 @@ function install_ternforvim() {
 }
 
 function install_YouCompleteMe() {
-    #python ~/dotfiles/.vim/bundle/YouCompleteMe/install.py --clang-completer --tern-completer
+    sudo apt-get install
     python ~/dotfiles/.vim/bundle/YouCompleteMe/install.py --clang-completer --tern-completer --system-libclang
 }
 
@@ -40,7 +40,7 @@ function install_jsSyntaxChecking() {
 }
 
 function install_powerline() {
-cat >> ~/.basrhc <<EOF
+cat >> ~/.bashrc<<EOF
 if [ -f \`which powerline-daemon\` ]; then
     powerline-daemon -q
     POWERLINE_BASH_CONTINUATION=1
@@ -85,12 +85,17 @@ function create_gitconfig() {
 EOF
 }
 
+function bash_tweaks() {
+    # Vi editing
+    set -o vi
+}
+
 #install_node
 #install_vundles
 #install_ternforvim
-install_YouCompleteMe
+#install_YouCompleteMe
 #install_jsSyntaxChecking
 #install_anaconda
-#install_powerline
-#create_netrc
-#create_gitconfig
+install_powerline
+create_netrc
+create_gitconfig

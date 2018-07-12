@@ -3,7 +3,7 @@
 # Sets up cron jobs.
 #
 #useage:
-#$sudo bash linux_setup_cron.sh 
+#$sudo bash linux_setup_4_cron.sh 
 
 function vtrim () {
 # set up daily vtrim
