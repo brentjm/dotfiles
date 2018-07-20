@@ -135,9 +135,6 @@ export WORKON_HOME=$HOME/.virtualenvs
 
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
 
-# added by Anaconda3 4.3.0 installer
-#export PATH="/home/brent/anaconda3/bin:$PATH"
-
 # Powerline
 if [ -f /usr/share/powerline/bindings/bash/powerline.sh ]; then
     source /usr/share/powerline/bindings/bash/powerline.sh
