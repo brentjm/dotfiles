@@ -1,158 +1,158 @@
 # Linux libraries
-ubuntu-restricted-extras
-build-essential 
-linux-headers-generic
-linux-headers-virtual
-dkms
-dconf-editor
-libssl-dev
-
-# compilers
-g\+\+
-gcc
-make
-cmake
-gfortran
-
-#libraries
-libclang1
-cifs-utils
-
-# web transfer tools
-curl
-git
-nautilus-dropbox
-#youtube-dl # Install manually
-apt-transport-https 
-ca-certificates
-
-# command line tools
-nmap
-
-# other tools
-tmux
-tree
-pdftk
-silversearcher-ag
-keepassx
-
-# Propmts
-powerline
-
-# Web browser
-chromium-browser
-
-# hardware tools
-smartmontools
-#xsane-common
-
-# file tools
-#nfs-common
-
-# audio tools
-gstreamer0.10-plugins-base
-gstreamer0.10-plugins-good
-gstreamer1.0-plugins-bad
-gstreamer1.0-plugins-ugly
-libmp3lame0
-libavcodec-extra
-libav-tools
-audacity
-mpg123
-picard
-python-musicbrainz2
-puddletag
-
-# rubyripper dependencies
-#cd-discid 
-#cdparanoia 
-#flac 
-#lame 
-#mp3gain 
-#normalize-audio 
-#ruby-gnome2 
-#ruby 
-#vorbisgain
-#cdrdao
-
-# video tools
-vlc
-
-# vim
-vim
-vim-gnome
-vim-gnome-py2
-vim-latexsuite
-exuberant-ctags
-#python-powerline
-python3-powerline
-
-# latex
-texlive
-texlive-base
-texlive-extra-utils
-texlive-plain-extra
-texlive-font-utils
-texlive-fonts-recommended
-texlive-latex-extra
-texlive-formats-extra
-texlive-generic-recommended
-texlive-generic-extra
-texlive-math-extra
-texlive-pictures
-texlive-pstricks
-texlive-publishers
-texlive-science
-biber
-#texlive-bibtex-extra
-
-# graphics
-vtk6
-libvtk6
-#mayavi2
-gimp
-impressive
-xscreensaver
-xscreensaver-data-extra
-xscreensaver-screensaver-bsod
-blender 
-freecad
-
+#ubuntu-restricted-extras
+#build-essential 
+#linux-headers-generic
+#linux-headers-virtual
+#dkms
+#dconf-editor
+#libssl-dev
+#
+## compilers
+#g\+\+
+#gcc
+#make
+#cmake
+#gfortran
+#
+##libraries
+#libclang1
+#cifs-utils
+#
+## web transfer tools
+#curl
+#git
+#nautilus-dropbox
+##youtube-dl # Install manually
+#apt-transport-https 
+#ca-certificates
+#
+## command line tools
+#nmap
+#
+## other tools
+#tmux
+#tree
+#pdftk
+#silversearcher-ag
+#keepassx
+#
+## Propmts
+#powerline
+#
+## Web browser
+#chromium-browser
+#
+## hardware tools
+#smartmontools
+##xsane-common
+#
+## file tools
+##nfs-common
+#
+## audio tools
+#gstreamer0.10-plugins-base
+#gstreamer0.10-plugins-good
+#gstreamer1.0-plugins-bad
+#gstreamer1.0-plugins-ugly
+#libmp3lame0
+#libavcodec-extra
+#libav-tools
+#audacity
+#mpg123
+#picard
+#python-musicbrainz2
+#puddletag
+#
+## rubyripper dependencies
+##cd-discid 
+##cdparanoia 
+##flac 
+##lame 
+##mp3gain 
+##normalize-audio 
+##ruby-gnome2 
+##ruby 
+##vorbisgain
+##cdrdao
+#
+## video tools
+#vlc
+#
+## vim
+#vim
+#vim-gnome
+#vim-gnome-py2
+#vim-latexsuite
+#exuberant-ctags
+##python-powerline
+#python3-powerline
+#
+## latex
+#texlive
+#texlive-base
+#texlive-extra-utils
+#texlive-plain-extra
+#texlive-font-utils
+#texlive-fonts-recommended
+#texlive-latex-extra
+#texlive-formats-extra
+#texlive-generic-recommended
+#texlive-generic-extra
+#texlive-math-extra
+#texlive-pictures
+#texlive-pstricks
+#texlive-publishers
+#texlive-science
+#biber
+##texlive-bibtex-extra
+#
+## graphics
+#vtk6
+#libvtk6
+##mayavi2
+#gimp
+#impressive
+#xscreensaver
+#xscreensaver-data-extra
+#xscreensaver-screensaver-bsod
+#blender 
+#freecad
+#
 # python
-#python-dev
-#python3-dev
+python-dev
+python3-dev
 #python-virtualenv
 #virtualenvwrapper
 #python-setuptools
-#ipython
-#ipython3
+ipython
+ipython3
 ##ipython-qtconsole
-#python-configobj
-#python-numpy
-#python-scipy
-#python-matplotlib
-#python-h5py
-#python-imaging
-#python-vtk6
-#python-pyvtk
-#python-wxgtk2.8
-#python-wxtools
-#python-mdp
-#python-opencv
-#python-pygame
-#python-pyglet
-#python-sparse
-#python-mpi4py
-#python-opengl
-#python-scitools
-#python-scientific
-#python-mdp
-#python-qt4
-#python-tables
-#python-pandas
-#flake8
-#pylint
-#pylint3
+python-configobj
+python-numpy
+python-scipy
+python-matplotlib
+python-h5py
+python-imaging
+python-vtk6
+python-pyvtk
+python-wxgtk2.8
+python-wxtools
+python-mdp
+python-opencv
+python-pygame
+python-pyglet
+python-sparse
+python-mpi4py
+python-opengl
+python-scitools
+python-scientific
+python-mdp
+python-qt4
+python-tables
+python-pandas
+flake8
+pylint
+pylint3
 
 # communication
 #skype

@@ -13,6 +13,11 @@ function install_node() {
     nvm install node
 }
 
+function install_vim_plugin {
+    # Install the vim-plugin script
+    curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+}
+
 function install_vundles() {
     git clone https://github.com/VundleVim/Vundle.vim.git ~/dotfiles/.vim/bundle/vundle 
     vim +PluginInstall +qall
@@ -94,8 +99,9 @@ function bash_tweaks() {
 #install_vundles
 #install_ternforvim
 #install_YouCompleteMe
+install_vim_plugin
 #install_jsSyntaxChecking
 #install_anaconda
-install_powerline
-create_netrc
-create_gitconfig
+#install_powerline
+#create_netrc
+#create_gitconfig
