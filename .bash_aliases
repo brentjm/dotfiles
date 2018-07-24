@@ -18,3 +18,5 @@ function stop_using_conda_python() {
 alias set_title=set_terminal_title
 alias activate_conda=use_conda_python
 alias deactivate_conda=stop_using_conda_python
+
+alias vi=nvim

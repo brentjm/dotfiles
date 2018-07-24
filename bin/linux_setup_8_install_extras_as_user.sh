@@ -16,6 +16,7 @@ function install_node() {
 function install_vim_plugin {
     # Install the vim-plugin script
     curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    nvim +PlugInstall +qall
 }
 
 function install_vundles() {
@@ -55,18 +56,10 @@ fi
 EOF
 }
 
-function install_anaconda() {
-    # Installs the anaconda distributions
-    # Note that the version has to be changed!
-    echo "Python version?"
-    read pythonversion
-    echo "Anaconda distribution version (e.g. 5.0.1)?"
-    read condaversion
-    #wget --directory-prefix=/home/brent/Downloads/ https://repo.continuum.io/archive/Anaconda3-4.3.0-Linux-x86_64.sh
-    wget --directory-prefix=/home/brent/Downloads/ https://repo.continuum.io/archive/Anaconda"$pythonversion"-"$condaversion"-Linux-x86_64.sh
-    md5sum ~/Downloads/Anaconda*.sh
-    sha256sum ~/Downloads/Anaconda*.sh
-    bash ~/Downloads/Anaconda"$pythonversion"-"$condaversion"-Linux-x86_64.sh 
+function install_miniconda() {
+    # Installs the miniconda distributions
+    wget --directory-prefix=/home/brent/Downloads/ https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+    bash ~/Downloads/Miniconda3-latest-Linux-x86_64.sh
 }
 
 function create_netrc() {
@@ -99,9 +92,9 @@ function bash_tweaks() {
 #install_vundles
 #install_ternforvim
 #install_YouCompleteMe
-install_vim_plugin
+#install_vim_plugin
 #install_jsSyntaxChecking
-#install_anaconda
+install_miniconda
 #install_powerline
 #create_netrc
 #create_gitconfig

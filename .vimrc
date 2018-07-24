@@ -1,4 +1,4 @@
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.local/share/nvim/site/autoload/
 call plug#begin()
 Plug 'altercation/vim-colors-solarized'
 Plug 'davidhalter/jedi-vim'
