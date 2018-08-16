@@ -4,7 +4,7 @@
 # or just don't install easily with the  overall installation script.
 
 function install_node() {
-    echo "nvm version number (e.g. v0.33.1)?"
+    echo 'nvm version number (e.g. "v0.33.1")?'
     read version
     #curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
     curl -o- https://raw.githubusercontent.com/creationix/nvm/"$version"/install.sh | bash

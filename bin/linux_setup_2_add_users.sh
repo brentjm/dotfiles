@@ -46,8 +46,11 @@ function add_users () {
     gid=1001
     for u in "rebekah" "jakob" "julia" "logan"
     do
-        echo "adduser -m --gid $gid --uid $uid -p Bonjour! $u"
-        adduser -m --gid $gid --uid $uid -p "Bonjour!" $u
+        echo "addgroup --gid $gid --uid $u"
+        addgroup --gid $gid $u
+        echo "adduser --gid $gid --uid $uid $u"
+        adduser --gid $gid --uid $uid $u
+        passwd -e $u
         uid=$((uid+1))
         gid=$((gid+1))
     done
