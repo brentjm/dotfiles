@@ -69,6 +69,7 @@ augroup PythonFiles
         \ set expandtab |
         \ set autoindent |
         \ set fileformats=unix,dos |
+        \ set foldmethod=indent |
     augroup END
 
 " JS, HTML format
