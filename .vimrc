@@ -1,11 +1,11 @@
 set rtp+=~/.local/share/nvim/site/autoload/
 call plug#begin()
-Plug 'altercation/vim-colors-solarized'
 Plug 'https://github.com/neomake/neomake'
 Plug 'davidhalter/jedi-vim'
-Plug 'ternjs/tern_for_vim'
+"Plug 'ternjs/tern_for_vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+Plug 'altercation/vim-colors-solarized'
 call plug#end()
 
 filetype plugin indent on
@@ -74,11 +74,8 @@ augroup PythonFiles
         \ set expandtab |
         \ set autoindent |
         \ set fileformats=unix,dos |
-<<<<<<< HEAD
         \ set foldmethod=indent |
-=======
         \ set foldmethod=indent
->>>>>>> 0b2b15fe30b80c6d0eecc592f5367dac949bc842
     augroup END
 
 " JS, HTML format
