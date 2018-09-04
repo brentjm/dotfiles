@@ -1,5 +1,11 @@
 let g:netrw_dirhistmax  =10
+<<<<<<< HEAD
 let g:netrw_dirhist_cnt =3
 let g:netrw_dirhist_1='/home/brent/.vim'
 let g:netrw_dirhist_2='/home/brent/Documents/investing/jupyter_notebooks/investing'
 let g:netrw_dirhist_3='/home/brent/Documents/cobalt-raman-template-generator/cobalt-supplied-template'
+=======
+let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_1='/home/brent/.vim'
+let g:netrw_dirhist_2='/home/brent/Documents/investing/investing/interactivebrokers/log'
+>>>>>>> 0b2b15fe30b80c6d0eecc592f5367dac949bc842

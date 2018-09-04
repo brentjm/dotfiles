@@ -1,9 +1,11 @@
 set rtp+=~/.local/share/nvim/site/autoload/
 call plug#begin()
 Plug 'altercation/vim-colors-solarized'
+Plug 'https://github.com/neomake/neomake'
 Plug 'davidhalter/jedi-vim'
 Plug 'ternjs/tern_for_vim'
-Plug 'https://github.com/neomake/neomake'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 call plug#end()
 
 filetype plugin indent on
@@ -21,7 +23,10 @@ call neomake#configure#automake('rw', 1000)
 "******* Jedi-Vim *********
 let g:jedi#completions_enabled = 1
 
-" Always show statusline
+"******* JS/JSC Vim settings ******
+let g:jsx_ext_required = 0
+
+"******** Always show statusline *****
 set laststatus=2
 
 "***** netrw *********
@@ -69,7 +74,11 @@ augroup PythonFiles
         \ set expandtab |
         \ set autoindent |
         \ set fileformats=unix,dos |
+<<<<<<< HEAD
         \ set foldmethod=indent |
+=======
+        \ set foldmethod=indent
+>>>>>>> 0b2b15fe30b80c6d0eecc592f5367dac949bc842
     augroup END
 
 " JS, HTML format

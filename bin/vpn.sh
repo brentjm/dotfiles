@@ -15,7 +15,7 @@ function vpn () {
   if [ "$#" -gt 0 ]; then
     LOC="${1}"
   else
-    ls -al /etc/openvpn
+    ls -al /etc/openvpn/client/*.ovpn
     echo "Type in the VPN server and press [ENTER]"
     read server
     if [[ ! -z "$server" ]]
@@ -27,7 +27,7 @@ function vpn () {
   fi
 
   echo "sudo openvpn \"${LOC}\""
-  (cd /etc/openvpn ; sudo openvpn "${LOC}")
+  (cd /etc/openvpn/client ; sudo openvpn "${LOC}")
 }
 
 vpn "$@"
