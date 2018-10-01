@@ -2,6 +2,8 @@ set rtp+=~/.local/share/nvim/site/autoload/
 call plug#begin()
 Plug 'https://github.com/neomake/neomake'
 Plug 'davidhalter/jedi-vim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'benjie/local-npm-bin.vim'
 "Plug 'ternjs/tern_for_vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
@@ -22,6 +24,9 @@ call neomake#configure#automake('rw', 1000)
 
 "******* Jedi-Vim *********
 let g:jedi#completions_enabled = 1
+
+"******** deoplete **************
+let g:deoplete#enable_at_startup = 1
 
 "******* JS/JSC Vim settings ******
 let g:jsx_ext_required = 0
@@ -82,9 +87,9 @@ augroup PythonFiles
 augroup JSFiles
     autocmd!
     au BufNewFile,BufRead *.js,*.html,*.css,*.jsx
-        \ set tabstop=4 |
-        \ set softtabstop=4 |
-        \ set shiftwidth=4 |
+        \ set tabstop=2 |
+        \ set softtabstop=2 |
+        \ set shiftwidth=2 |
         \ set expandtab |
         \ set autoindent |
         \ set foldmethod=indent |
