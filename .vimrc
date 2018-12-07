@@ -1,8 +1,9 @@
 set rtp+=~/.local/share/nvim/site/autoload/
 call plug#begin()
 Plug 'https://github.com/neomake/neomake'
-Plug 'davidhalter/jedi-vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-jedi'
+"Plug 'davidhalter/jedi-vim'
 Plug 'benjie/local-npm-bin.vim'
 "Plug 'ternjs/tern_for_vim'
 Plug 'pangloss/vim-javascript'
@@ -13,7 +14,7 @@ call plug#end()
 filetype plugin indent on
 
 let mapleader=","
-
+let g:python3_host_prog = '/home/brent/miniconda3/bin/python'
 "******* basic settings *********
 set wildmenu
 
