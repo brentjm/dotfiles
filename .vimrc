@@ -2,13 +2,15 @@ set rtp+=~/.local/share/nvim/site/autoload/
 call plug#begin()
 Plug 'https://github.com/neomake/neomake'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-jedi'
 "Plug 'davidhalter/jedi-vim'
-Plug 'benjie/local-npm-bin.vim'
+Plug 'zchee/deoplete-jedi'
 "Plug 'ternjs/tern_for_vim'
-Plug 'pangloss/vim-javascript'
+"Plug 'pangloss/vim-javascript'
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'mxw/vim-jsx'
+Plug 'benjie/local-npm-bin.vim'
 Plug 'altercation/vim-colors-solarized'
+Plug 'ludovicchabant/vim-gutentags'
 call plug#end()
 
 filetype plugin indent on
