@@ -1,23 +1,17 @@
 set rtp+=~/.local/share/nvim/site/autoload/
 call plug#begin()
 Plug 'https://github.com/neomake/neomake'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-"Plug 'davidhalter/jedi-vim'
-Plug 'zchee/deoplete-jedi'
+Plug 'davidhalter/jedi-vim'
 "Plug 'ternjs/tern_for_vim'
-"Plug 'pangloss/vim-javascript'
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-Plug 'benjie/local-npm-bin.vim'
 Plug 'altercation/vim-colors-solarized'
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'majutsushi/tagbar'
 call plug#end()
 
 filetype plugin indent on
-nmap <F8> :TagbarToggle<CR>
+
 let mapleader=","
-let g:python3_host_prog = '/home/brent/miniconda3/bin/python'
+
 "******* basic settings *********
 set wildmenu
 
@@ -28,9 +22,6 @@ call neomake#configure#automake('rw', 1000)
 
 "******* Jedi-Vim *********
 let g:jedi#completions_enabled = 1
-
-"******** deoplete **************
-let g:deoplete#enable_at_startup = 1
 
 "******* JS/JSC Vim settings ******
 let g:jsx_ext_required = 0

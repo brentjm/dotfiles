@@ -18,6 +18,19 @@ function googleChrome() {
     sudo apt-get install -f
 }
 
+function install_ctags() {
+    pwd=${PWD}
+    mkdir ~/Downloads/ctags
+    git clone https://github.com/universal-ctags/ctags ~/Downloads/ctags
+    cd ~/Downloads/ctags
+    sudo apt install -y pkg-config
+    ./autogen.sh
+    # installation directory; defaults to /usr/local
+    ./configure --prefix=/usr/local 
+    make
+    sudo make install # may require extra privileges depending on where to install
+    cd $pwd
+
 function virtualBox() {
     # Install virtualbox as the most corrent version
     # Note that this scipt requires some modifications to work properly for versions.
@@ -80,24 +93,20 @@ function postgres() {
 }
 
 function install_docker() {
-    # https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04
-    sudo apt-get update
-    sudo apt install apt-transport-https ca-certificates curl software-properties-common
     sudo -u brent curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     sudo apt-key fingerprint 0EBFCD88
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
     sudo apt-get update
-    apt-cache policy docker-ce
-    #sudo apt-get -y install docker-ce
-    #sudo usermod -aG docker brent
+    sudo apt-get -y install docker-ce
+    sudo usermod -aG docker brent
 }
 
 #linuxHeaders
 #libncurses
 #googleChrome
-#virtualBox
+virtualBox
 #dvdcss
 #youtubeDL
 #blender
 #postgres
-install_docker
+#install_docker
