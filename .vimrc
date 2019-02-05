@@ -6,11 +6,12 @@ Plug 'davidhalter/jedi-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'altercation/vim-colors-solarized'
+Plug 'lervag/vimtex'
 call plug#end()
 
 filetype plugin indent on
 
-let mapleader=","
+"let mapleader=","
 
 "******* basic settings *********
 set wildmenu
@@ -28,6 +29,9 @@ let g:jsx_ext_required = 0
 
 "******** Always show statusline *****
 set laststatus=2
+
+"********** vimtex **************
+let g:vimtex_compiler_progname = 'nvr'
 
 "***** netrw *********
 let g:netrw_banner = 0
