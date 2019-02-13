@@ -54,9 +54,9 @@ gstreamer0.10-plugins-base
 gstreamer0.10-plugins-good
 gstreamer1.0-plugins-bad
 gstreamer1.0-plugins-ugly
-libmp3lame0
-libavcodec-extra
-libav-tools
+#libmp3lame0
+#libavcodec-extra
+#libav-tools
 #audacity
 #mpg123
 #picard
@@ -78,7 +78,7 @@ libav-tools
 # video tools
 vlc
 #
-# vim (switched to nvim)
+# vim (switched to neovim)
 #vim
 #vim-gnome
 #vim-gnome-py2
@@ -87,8 +87,8 @@ vlc
 #python-powerline
 #python3-powerline
 #
-# nvim
-lua-nvim
+# neovim
+neovim
 #
 # latex
 #texlive
@@ -122,6 +122,7 @@ lua-nvim
 #freecad
 #
 # python (use extras installation to install conda)
+python3-pip
 #python-dev
 #python3-dev
 #python-virtualenv
@@ -170,7 +171,7 @@ lua-nvim
 #virtualbox-guest-additions-iso
 
 # HDF5
-vitables
+#vitables
 
 # remote machines
 #vde2
