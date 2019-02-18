@@ -88,14 +88,13 @@ function bash_tweaks() {
     set -o vi
 }
 
-#install_node
+install_node
 #install_vundles
 #install_ternforvim
 #install_YouCompleteMe
-#configure_neovim
 #install_vim_plugin
 #install_jsSyntaxChecking
 install_miniconda
-#install_powerline
-#create_netrc
-#create_gitconfig
+install_powerline
+create_netrc
+create_gitconfig

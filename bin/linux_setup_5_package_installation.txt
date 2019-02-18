@@ -34,7 +34,7 @@ tmux
 tree
 pdftk
 #silversearcher-ag
-keepassx
+#keepassx
 #
 # Propmts
 powerline
