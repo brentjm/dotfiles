@@ -12,7 +12,7 @@ function libncurses() {
     sudo apt-get install "$libncurses"
 }
 
-function install_googleChrome() {
+function googleChrome() {
     wget --directory-prefix=/home/brent/Downloads/ https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
     sudo dpkg -i /home/brent/Downloads/google-chrome-stable_current_amd64.deb
     sudo apt-get install -f
@@ -22,18 +22,16 @@ function install_ctags() {
     pwd=${PWD}
     mkdir ~/Downloads/ctags
     git clone https://github.com/universal-ctags/ctags ~/Downloads/ctags
-    sudo chown -R brent:brent ~/Downloads/ctags
     cd ~/Downloads/ctags
-    sudo apt install -y dh-autoreconf pkg-config
+    sudo apt install -y pkg-config
     ./autogen.sh
     # installation directory; defaults to /usr/local
     ./configure --prefix=/usr/local 
     make
     sudo make install # may require extra privileges depending on where to install
     cd $pwd
-}
 
-function install_virtualBox() {
+function virtualBox() {
     # Install virtualbox as the most corrent version
     # Note that this scipt requires some modifications to work properly for versions.
 
@@ -54,7 +52,7 @@ function install_virtualBox() {
     sudo apt-get install virtualbox-"$version"
 }
 
-function install_dvdcss () {
+function dvdcss () {
     # Install the dvd reading class 
 
     # Only neccessary for 12.04 to 15.04
@@ -66,14 +64,14 @@ function install_dvdcss () {
     sudo dpkg-reconfigure libdvd-pkg
 }
 
-function install_youtubeDL() {
+function youtubeDL() {
     # Install youtube-dl from the downloads to maintain most
     # recent version.
     sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
     sudo chmod a+rx /usr/local/bin/youtube-dl
 }
 
-function install_blender() {
+function blender() {
     # Install the latest version of Blender.
     echo "Blender version (e.g. 2.78)?"
     read "version"
@@ -88,7 +86,7 @@ function install_blender() {
      #sudo ln -s /opt/blender/blender /usr/bin/blender
 }
 
-function install_postgres() {
+function postgres() {
     sudo apt-get install -y postgresql 
     ver=$(psql --version | awk -F " " '{print $3}' | cut -c -3)
     sudo apt-get install -y libpq-dev postgresql-server-dev-${ver}
@@ -101,32 +99,14 @@ function install_docker() {
     sudo apt-get update
     sudo apt-get -y install docker-ce
     sudo usermod -aG docker brent
-    sudo curl -L "https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-    sudo chmod +x /usr/local/bin/docker-compose
 }
 
-function install_neovim() {
-    cd ~/Downloads
-    wget --quiet https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage --output-document ~/Downloads/nvim
-    sudo chown root:root nvim
-    sudo chmod +x nvim
-    sudo mv nvim /usr/bin/.
-    sudo -u brent mkdir -p ~/.config/nvim
-    cd ~/.config/nvim 
-    sudo -u brent ln -s ~/dotfiles/init.vim
-    sudo -u brent curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    sudo apt install python3-pip
-    sudo -u brent pip3 install --user pynvim
-}
-
-linuxHeaders
-libncurses
-#install_ctags
-install_googleChrome
-#install_virtualBox
-#install_dvdcss
-#install_youtubeDL
-#install_blender
-#install_postgres
-install_docker
-install_neovim
+#linuxHeaders
+#libncurses
+#googleChrome
+virtualBox
+#dvdcss
+#youtubeDL
+#blender
+#postgres
+#install_docker
