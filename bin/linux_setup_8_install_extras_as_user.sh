@@ -13,10 +13,6 @@ function install_node() {
     nvm install node
 }
 
-function configure_neovim {
-    ln -s ~/.vim ~/.config/nvim
-}
-
 function install_vim_plugin {
     # Install the vim-plugin script
     curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -97,9 +93,10 @@ function bash_tweaks() {
 #install_ternforvim
 #install_YouCompleteMe
 #configure_neovim
-install_vim_plugin
+#install_vim_plugin
 #install_jsSyntaxChecking
 #install_miniconda
 #install_powerline
 #create_netrc
 #create_gitconfig
+bash_tweaks
