@@ -7,6 +7,10 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'altercation/vim-colors-solarized'
 Plug 'lervag/vimtex'
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/denite.nvim'
 call plug#end()
 
 filetype plugin indent on
@@ -20,6 +24,9 @@ let g:neomake_open_list = 2
 let g:neomake_serialize = 1
 let g:neomake_serialize_abort_on_error = 1
 call neomake#configure#automake('rw', 1000)
+
+"******* enable deoplete at startup *******
+let g:deoplete#enable_at_startup =1
 
 "******* Jedi-Vim *********
 let g:jedi#completions_enabled = 1
@@ -85,7 +92,7 @@ augroup PythonFiles
 " JS, HTML format
 augroup JSFiles
     autocmd!
-    au BufNewFile,BufRead *.js,*.html,*.css,*.jsx
+    au BufNewFile,BufRead *.js,*.html,*.css,*.jsx, *.ts
         \ set tabstop=2 |
         \ set softtabstop=2 |
         \ set shiftwidth=2 |

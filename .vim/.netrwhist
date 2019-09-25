@@ -1,7 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_cnt =7
 let g:netrw_dirhist_1='/home/brent/.vim'
 let g:netrw_dirhist_2='/home/brent/Documents/investing/investing/interactivebrokers/log'
 let g:netrw_dirhist_3='/etc/nginx/sites-available'
 let g:netrw_dirhist_4='/home/brent/Downloads'
 let g:netrw_dirhist_5='/home/brent/Downloads/2018 Pfizer'
+let g:netrw_dirhist_6='/home/brent/Docker/web-app-docker-serivices/flask/flask_app'
+let g:netrw_dirhist_7='/home/brent/Docker/web-app-docker-serivices/node-red'
