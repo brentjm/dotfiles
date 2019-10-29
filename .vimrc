@@ -98,7 +98,7 @@ augroup PythonFiles
 " JS, HTML format
 augroup JSFiles
     autocmd!
-    au BufNewFile,BufRead *.js,*.html,*.css,*.jsx, *.ts
+    au BufNewFile,BufRead *.js,*.html,*.css,*.jsx,*.ts
         \ set tabstop=2 |
         \ set softtabstop=2 |
         \ set shiftwidth=2 |
