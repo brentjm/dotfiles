@@ -30,13 +30,12 @@ function install_ctags() {
     make
     sudo make install # may require extra privileges depending on where to install
     cd $pwd
+}
 
 function virtualBox() {
     # Install virtualbox as the most corrent version
     # Note that this scipt requires some modifications to work properly for versions.
 
-    # Make sure to update the ubuntu version.
-    #read codename
     codename=$(lsb_release -c | awk '{print $2}')
     if [ ! -f "/etc/apt/sources.list.d/virtualbox.list" ]; then
         echo -n "deb http://download.virtualbox.org/virtualbox/debian $codename contrib" > virtualbox.list
@@ -46,9 +45,8 @@ function virtualBox() {
     wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
     sudo apt-get update
     # Make sure to update the version.
-    echo "Virtualbox version (e.g. 5.2)?"
+    echo "Virtualbox version (e.g. #.#)?"
     read "version"
-    #sudo apt-get install virtualbox-5.2
     sudo apt-get install virtualbox-"$version"
 }
 
