@@ -1,6 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/home/brent/Docker/investing/lib/tdameritrade'
-let g:netrw_dirhist_2='/home/brent/Docker/instrument-services/aws'
-let g:netrw_dirhist_3='/home/brent/Docker/aws-iot'
-let g:netrw_dirhist_4='/home/brent/Docker'
